@@ -373,7 +373,7 @@ if (features.newDashboard) {
 
 ### .gitignore Configuration
 
-```gitignore
+```plaintext
 # Environment files
 .env
 .env.local

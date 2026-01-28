@@ -373,7 +373,7 @@ if (features.newDashboard) {
 
 ### .gitignore 配置
 
-```gitignore
+```plaintext
 # 环境变量文件
 .env
 .env.local

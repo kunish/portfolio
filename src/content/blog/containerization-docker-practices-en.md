@@ -179,7 +179,7 @@ RUN npm run build
 
 ### .dockerignore Configuration
 
-```dockerignore
+```plaintext
 # Version control
 .git
 .gitignore
