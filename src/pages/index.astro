@@ -16,6 +16,9 @@ const posts = allPosts
   .filter((post) => (post.data.lang || 'zh') === lang)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+// 生成 OG 图片路径
+const getOgImagePath = (postId: string) => `/og/${postId}.png`;
 ---
 
 <!doctype html>
@@ -173,20 +176,15 @@ const posts = allPosts
             {posts.map((post, index) => (
               <article class="blog-card animate-on-scroll" data-animation="fadeInUp" style={`--delay: ${index * 0.1}s`}>
                 <a href={`${translatePath('/blog')}/${post.id}/`} class="block group">
-                  <div class="aspect-[4/3] bg-black mb-6 overflow-hidden relative blog-card-image">
-                    {post.data.heroImage ? (
-                      <img
-                        src={post.data.heroImage.src}
-                        alt={post.data.title}
-                        class="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div class="w-full h-full flex items-center justify-center">
-                        <span class="font-display text-6xl text-accent italic opacity-60">
-                          {String(index + 1).padStart(2, '0')}
-                        </span>
-                      </div>
-                    )}
+                  <div class="aspect-[1200/630] bg-black mb-6 overflow-hidden relative blog-card-image">
+                    <img
+                      width={600}
+                      height={315}
+                      src={getOgImagePath(post.id)}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <div class="text-text-muted text-sm uppercase tracking-[0.12em] mb-2">
                     <FormattedDate date={post.data.pubDate} lang={lang} />

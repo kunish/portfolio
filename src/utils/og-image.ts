@@ -43,8 +43,12 @@ async function getNotoSansSCFont(): Promise<ArrayBuffer> {
   if (notoSansSCCache) {
     return notoSansSCCache;
   }
-  // Noto Sans SC 支持中文字符 - 使用 GitHub 上的 OTF 文件
-  const response = await fetch('https://github.com/notofonts/noto-cjk/raw/main/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Bold.otf');
+  const response = await fetch('https://unpkg.com/@aspect-build/aspect-fonts@0.0.6/fonts/NotoSansSC-Bold.woff', {
+    headers: { 'User-Agent': 'Mozilla/5.0' }
+  });
+  if (!response.ok) {
+    return getInterFont();
+  }
   notoSansSCCache = await response.arrayBuffer();
   return notoSansSCCache;
 }
