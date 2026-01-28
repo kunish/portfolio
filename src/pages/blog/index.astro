@@ -5,110 +5,132 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+// Filter posts by current language
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((post) => (post.data.lang || 'zh') === lang)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+  <head>
+    <BaseHead title={`${t('blog.title')} - ${t('site.title')}`} description={t('blog.description')} />
+  </head>
+  <body>
+    <Header />
+
+    <main class="pt-20">
+      <!-- Hero Section -->
+      <section class="py-24 md:py-32">
+        <div class="container-swiss">
+          <div class="max-w-3xl">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tight leading-[0.95]">
+              {lang === 'zh' ? '技术' : 'Tech '}<span class="text-accent">{t('blog.title')}</span>
+            </h1>
+            <p class="mt-8 text-xl text-text-secondary leading-relaxed">
+              {t('blog.description')}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Posts Grid -->
+      <section class="pb-24 md:pb-32">
+        <div class="container-swiss">
+          <!-- Featured Post -->
+          {posts.length > 0 && (
+            <article class="mb-16">
+              <a href={`${translatePath('/blog')}/${posts[0].id}/`} class="group block">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                  <div class="aspect-[4/3] bg-black overflow-hidden">
+                    {posts[0].data.heroImage ? (
+                      <Image
+                        width={800}
+                        height={600}
+                        src={posts[0].data.heroImage}
+                        alt={posts[0].data.title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center">
+                        <span class="font-display text-8xl font-bold text-accent">01</span>
+                      </div>
+                    )}
+                  </div>
+                  <div class="lg:pl-8">
+                    <span class="tag tag-accent mb-4">{t('blog.featured')}</span>
+                    <h2 class="text-3xl md:text-4xl font-display font-semibold group-hover:text-accent transition-colors">
+                      {posts[0].data.title}
+                    </h2>
+                    <p class="mt-4 text-text-secondary text-lg line-clamp-3">
+                      {posts[0].data.description}
+                    </p>
+                    <div class="mt-6 flex items-center gap-4 text-text-muted text-sm uppercase tracking-wider">
+                      <FormattedDate date={posts[0].data.pubDate} lang={lang} />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          )}
+
+          <!-- Divider -->
+          <div class="divider mb-16"></div>
+
+          <!-- Posts List -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            {posts.slice(1).map((post, index) => (
+              <article class="blog-card">
+                <a href={`${translatePath('/blog')}/${post.id}/`} class="block">
+                  <div class="aspect-[4/3] bg-black mb-6 overflow-hidden">
+                    {post.data.heroImage ? (
+                      <Image
+                        width={600}
+                        height={450}
+                        src={post.data.heroImage}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center">
+                        <span class="font-display text-6xl font-bold text-accent">
+                          {String(index + 2).padStart(2, '0')}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div class="text-text-muted text-sm uppercase tracking-wider mb-2">
+                    <FormattedDate date={post.data.pubDate} lang={lang} />
+                  </div>
+                  <h3 class="blog-card-title">{post.data.title}</h3>
+                  <p class="mt-3 text-text-secondary line-clamp-2">{post.data.description}</p>
+                </a>
+              </article>
+            ))}
+          </div>
+
+          {posts.length === 0 && (
+            <div class="text-center py-24">
+              <span class="font-display text-8xl font-bold text-accent opacity-20">404</span>
+              <p class="mt-4 text-text-secondary text-lg">
+                {lang === 'zh' ? '暂无博客文章' : 'No blog posts available'}
+              </p>
+              {lang === 'en' && (
+                <a href="/blog" class="btn btn-outline mt-6">View Chinese Posts</a>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
 </html>

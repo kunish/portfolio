@@ -1,63 +1,222 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { PERSONAL_INFO, SKILLS, SOCIAL_LINKS } from '../consts';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Skills translation
+const skillCategoryTranslations: Record<string, string> = {
+  '前端框架': 'Frontend Frameworks',
+  '语言': 'Languages',
+  '工具': 'Tools',
+  '其他': 'Other',
+};
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<!doctype html>
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+  <head>
+    <BaseHead title={`${t('about.title')} - ${t('site.title')}`} description={t('about.description1')} />
+  </head>
+  <body>
+    <Header />
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+    <main class="pt-20">
+      <!-- Hero Section -->
+      <section class="py-24 md:py-32">
+        <div class="container-swiss">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            <!-- Content -->
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tight leading-[0.95]">
+                {lang === 'zh' ? '关于' : 'About '}<span class="text-accent">{lang === 'zh' ? '我' : 'Me'}</span>
+              </h1>
+              <p class="mt-8 text-xl md:text-2xl text-text-secondary leading-relaxed">
+                {t('hero.description')}
+              </p>
+              <div class="mt-12 space-y-4">
+                <div class="flex items-center gap-4">
+                  <span class="text-accent font-display text-2xl font-bold">01</span>
+                  <div>
+                    <span class="text-text-muted text-sm uppercase tracking-wider">
+                      {lang === 'zh' ? '职业' : 'Role'}
+                    </span>
+                    <p class="font-medium">{lang === 'zh' ? PERSONAL_INFO.role : 'Frontend Engineer'}</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-accent font-display text-2xl font-bold">02</span>
+                  <div>
+                    <span class="text-text-muted text-sm uppercase tracking-wider">
+                      {lang === 'zh' ? '位置' : 'Location'}
+                    </span>
+                    <p class="font-medium">{lang === 'zh' ? PERSONAL_INFO.location : 'China'}</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-accent font-display text-2xl font-bold">03</span>
+                  <div>
+                    <span class="text-text-muted text-sm uppercase tracking-wider">
+                      {lang === 'zh' ? '邮箱' : 'Email'}
+                    </span>
+                    <p class="font-medium">
+                      <a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+            <!-- Visual -->
+            <div class="lg:col-span-5 order-1 lg:order-2">
+              <div class="aspect-square bg-black relative overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="font-display text-[12rem] font-bold text-accent opacity-20">FE</span>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-accent p-6 text-white">
+                  <span class="text-sm uppercase tracking-wider opacity-70">Frontend Engineer</span>
+                  <span class="block font-display text-2xl font-bold mt-1">{PERSONAL_INFO.name}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+      <!-- About Content -->
+      <section class="py-24 md:py-32 bg-cream-dark">
+        <div class="container-swiss">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4">
+              <h2 class="text-4xl md:text-5xl font-display font-semibold sticky top-28">
+                {lang === 'zh' ? '我的' : 'My '}<span class="text-accent">{lang === 'zh' ? '故事' : 'Story'}</span>
+              </h2>
+            </div>
+            <div class="lg:col-span-8 prose-swiss">
+              {lang === 'zh' ? (
+                <>
+                  <p>
+                    作为一名热衷于前端开发的工程师，我专注于创建优雅、高效且用户友好的界面体验。
+                    我相信好的设计不仅仅是视觉上的美观，更是关于用户体验和功能性的完美结合。
+                  </p>
+                  <p>
+                    在过去的几年中，我有幸参与了多个不同规模的项目，从初创公司的产品到大型企业应用。
+                    这些经历让我对前端开发有了更深入的理解，也培养了我解决复杂问题的能力。
+                  </p>
+                  <p>
+                    我热爱学习新技术，并积极参与开源社区。在业余时间，我喜欢撰写技术博客，
+                    分享我的学习心得和开发经验，希望能够帮助更多的开发者。
+                  </p>
+                  <p>
+                    当我不在写代码的时候，你可能会发现我在阅读、徒步或者尝试新的咖啡店。
+                    我相信保持工作与生活的平衡是持续创造优质工作的关键。
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    As a frontend engineer passionate about development, I focus on creating elegant, efficient, and user-friendly interface experiences.
+                    I believe good design is not just about visual aesthetics, but also about the perfect combination of user experience and functionality.
+                  </p>
+                  <p>
+                    Over the past few years, I've been fortunate to work on projects of various scales, from startup products to large enterprise applications.
+                    These experiences have given me a deeper understanding of frontend development and cultivated my ability to solve complex problems.
+                  </p>
+                  <p>
+                    I love learning new technologies and actively participate in the open-source community. In my spare time, I enjoy writing technical blogs,
+                    sharing my learning insights and development experiences, hoping to help more developers.
+                  </p>
+                  <p>
+                    When I'm not coding, you might find me reading, hiking, or trying out new coffee shops.
+                    I believe maintaining a work-life balance is key to continuously creating quality work.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+      <!-- Skills Section -->
+      <section class="py-24 md:py-32">
+        <div class="container-swiss">
+          <div class="mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-semibold">
+              {lang === 'zh' ? '技术' : 'Tech '}<span class="text-accent">{lang === 'zh' ? '能力' : 'Skills'}</span>
+            </h2>
+            <p class="mt-6 text-text-secondary max-w-2xl">
+              {lang === 'zh'
+                ? '多年的实践经验让我掌握了现代前端开发的核心技术栈，并持续关注技术发展趋势。'
+                : 'Years of practical experience have helped me master the core technology stack of modern frontend development, while continuously following technology trends.'}
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {SKILLS.map((skill, index) => (
+              <div class="bg-cream-dark p-8">
+                <span class="text-accent font-display text-4xl font-bold">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 class="font-display text-xl font-semibold mt-4">
+                  {lang === 'zh' ? skill.category : skillCategoryTranslations[skill.category] || skill.category}
+                </h3>
+                <ul class="mt-6 space-y-2">
+                  {skill.items.map((item) => (
+                    <li class="flex items-center gap-2 text-text-secondary">
+                      <span class="w-1.5 h-1.5 bg-accent"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Connect Section -->
+      <section class="py-24 md:py-32 bg-black text-white">
+        <div class="container-swiss">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-semibold leading-tight">
+                {lang === 'zh' ? "让我们" : "Let's "}<span class="text-accent">{lang === 'zh' ? '联系' : 'Connect'}</span>
+              </h2>
+              <p class="mt-6 text-white/60 text-lg max-w-md">
+                {t('about.contactDescription')}
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href={SOCIAL_LINKS.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 bg-white/10 hover:bg-accent px-6 py-4 transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span class="font-medium">GitHub</span>
+              </a>
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                class="flex items-center gap-3 bg-accent hover:bg-accent-hover px-6 py-4 transition-colors text-white"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="font-medium">Email</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>

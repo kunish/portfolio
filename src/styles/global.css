@@ -1,155 +1,345 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+/* Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-:root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-body {
-	font-family: "Atkinson", sans-serif;
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
-}
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Swiss Design Color Palette */
+  --color-cream: #f5f1eb;
+  --color-cream-dark: #e8e2d9;
+  --color-accent: #e63312;
+  --color-accent-hover: #cc2a0e;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-text-muted: #999999;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Spacing Scale */
+  --spacing-section: 8rem;
+  --spacing-block: 4rem;
+
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
 }
 
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-text-primary font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* Display Typography - Swiss Style */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 4.5rem;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 1.875rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 6rem;
+    }
+    h2 {
+      font-size: 3.75rem;
+    }
+  }
+
+  /* Links */
+  a {
+    color: var(--color-accent);
+    transition: color 150ms ease;
+  }
+
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-accent text-white;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Swiss Grid Container */
+  .container-swiss {
+    @apply max-w-7xl mx-auto px-6;
+  }
+
+  @media (min-width: 768px) {
+    .container-swiss {
+      @apply px-8;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-swiss {
+      @apply px-12;
+    }
+  }
+
+  /* Hero Section */
+  .hero-title {
+    @apply font-display font-semibold tracking-tight;
+    font-size: 3rem;
+    line-height: 0.95;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 4.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: 5.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .hero-title {
+      font-size: 7rem;
+    }
+  }
+
+  .hero-title .accent {
+    @apply text-accent;
+  }
+
+  /* Swiss Design Block */
+  .swiss-block {
+    @apply bg-black text-white p-6;
+  }
+
+  .swiss-block-accent {
+    @apply bg-accent text-white p-6;
+  }
+
+  @media (min-width: 768px) {
+    .swiss-block,
+    .swiss-block-accent {
+      @apply p-8;
+    }
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-text-primary font-medium text-sm uppercase tracking-widest;
+    transition: color 150ms ease;
+  }
+
+  .nav-link:hover {
+    @apply text-accent;
+  }
+
+  .nav-link.active {
+    @apply text-accent;
+  }
+
+  /* Blog Card */
+  .blog-card {
+    display: block;
+  }
+
+  .blog-card-title {
+    @apply font-display font-semibold;
+    font-size: 1.25rem;
+    transition: color 150ms ease;
+  }
+
+  @media (min-width: 768px) {
+    .blog-card-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  .blog-card:hover .blog-card-title {
+    @apply text-accent;
+  }
+
+  /* Button Styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium text-sm uppercase tracking-widest;
+    transition: all 150ms ease;
+  }
+
+  .btn-primary {
+    @apply bg-black text-white;
+  }
+
+  .btn-primary:hover {
+    @apply bg-accent;
+  }
+
+  .btn-outline {
+    @apply border-2 border-black text-black;
+  }
+
+  .btn-outline:hover {
+    @apply bg-black text-white;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white;
+  }
+
+  .btn-accent:hover {
+    @apply bg-accent-hover;
+  }
+
+  /* Tag/Badge */
+  .tag {
+    @apply inline-block px-3 py-1 text-xs uppercase tracking-wider font-medium bg-cream-dark text-text-secondary;
+  }
+
+  .tag-accent {
+    @apply bg-accent text-white;
+  }
+
+  /* Numbered List - Swiss Style */
+  .swiss-number {
+    @apply font-display font-bold text-accent leading-none;
+    font-size: 3.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .swiss-number {
+      font-size: 6rem;
+    }
+  }
+
+  /* Divider */
+  .divider {
+    border-top: 1px solid rgba(26, 26, 26, 0.1);
+  }
+
+  /* Grid Pattern Background */
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Prose Customization for Blog */
+.prose-swiss {
+  @apply prose prose-lg max-w-none;
+}
+
+.prose-swiss :where(h1, h2, h3, h4, h5, h6) {
+  @apply font-display font-semibold tracking-tight;
+}
+
+.prose-swiss :where(h1) {
+  font-size: 2.25rem;
+}
+
+.prose-swiss :where(h2) {
+  font-size: 1.875rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose-swiss :where(h3) {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .prose-swiss :where(h1) {
+    font-size: 3rem;
+  }
+  .prose-swiss :where(h2) {
+    font-size: 2.25rem;
+  }
+  .prose-swiss :where(h3) {
+    font-size: 1.875rem;
+  }
+}
+
+.prose-swiss :where(p) {
+  @apply text-text-primary leading-relaxed;
+}
+
+.prose-swiss :where(a) {
+  @apply text-accent no-underline;
+}
+
+.prose-swiss :where(a:hover) {
+  text-decoration: underline;
+}
+
+.prose-swiss :where(strong) {
+  @apply font-semibold text-text-primary;
+}
+
+.prose-swiss :where(blockquote) {
+  @apply border-l-4 border-accent pl-6 italic text-text-secondary;
+}
+
+.prose-swiss :where(code):not(pre code) {
+  @apply bg-cream-dark px-2 py-0.5 rounded font-mono text-sm text-text-primary;
+}
+
+.prose-swiss :where(pre) {
+  @apply p-6 overflow-x-auto;
+  border-radius: 0;
+}
+
+.prose-swiss :where(pre code) {
+  @apply bg-transparent p-0 text-sm;
+  border-radius: 0;
+}
+
+/* Ensure Shiki code blocks are visible */
+.prose-swiss :where(.astro-code) {
+  @apply p-6 overflow-x-auto;
+  border-radius: 0;
+}
+
+.prose-swiss :where(img) {
+  border-radius: 0;
+}
+
+.prose-swiss :where(hr) {
+  border-color: rgba(26, 26, 26, 0.1);
 }

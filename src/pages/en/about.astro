@@ -1,0 +1,192 @@
+---
+// English About page - reuses the shared about.astro template
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { useTranslations } from '../../i18n/utils';
+import { PERSONAL_INFO, SKILLS, SOCIAL_LINKS } from '../../consts';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+// Skills translation
+const skillCategoryTranslations: Record<string, string> = {
+  '前端框架': 'Frontend Frameworks',
+  '语言': 'Languages',
+  '工具': 'Tools',
+  '其他': 'Other',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${t('about.title')} - ${t('site.title')}`} description={t('about.description1')} />
+  </head>
+  <body>
+    <Header />
+
+    <main class="pt-20">
+      <!-- Hero Section -->
+      <section class="py-24 md:py-32">
+        <div class="container-swiss">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            <!-- Content -->
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tight leading-[0.95]">
+                About <span class="text-accent">Me</span>
+              </h1>
+              <p class="mt-8 text-xl md:text-2xl text-text-secondary leading-relaxed">
+                {t('hero.description')}
+              </p>
+              <div class="mt-12 space-y-4">
+                <div class="flex items-center gap-4">
+                  <span class="text-accent font-display text-2xl font-bold">01</span>
+                  <div>
+                    <span class="text-text-muted text-sm uppercase tracking-wider">Role</span>
+                    <p class="font-medium">Frontend Engineer</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-accent font-display text-2xl font-bold">02</span>
+                  <div>
+                    <span class="text-text-muted text-sm uppercase tracking-wider">Location</span>
+                    <p class="font-medium">China</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-accent font-display text-2xl font-bold">03</span>
+                  <div>
+                    <span class="text-text-muted text-sm uppercase tracking-wider">Email</span>
+                    <p class="font-medium">
+                      <a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual -->
+            <div class="lg:col-span-5 order-1 lg:order-2">
+              <div class="aspect-square bg-black relative overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="font-display text-[12rem] font-bold text-accent opacity-20">FE</span>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-accent p-6 text-white">
+                  <span class="text-sm uppercase tracking-wider opacity-70">Frontend Engineer</span>
+                  <span class="block font-display text-2xl font-bold mt-1">{PERSONAL_INFO.name}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Content -->
+      <section class="py-24 md:py-32 bg-cream-dark">
+        <div class="container-swiss">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4">
+              <h2 class="text-4xl md:text-5xl font-display font-semibold sticky top-28">
+                My <span class="text-accent">Story</span>
+              </h2>
+            </div>
+            <div class="lg:col-span-8 prose-swiss">
+              <p>
+                As a frontend engineer passionate about development, I focus on creating elegant, efficient, and user-friendly interface experiences.
+                I believe good design is not just about visual aesthetics, but also about the perfect combination of user experience and functionality.
+              </p>
+              <p>
+                Over the past few years, I've been fortunate to work on projects of various scales, from startup products to large enterprise applications.
+                These experiences have given me a deeper understanding of frontend development and cultivated my ability to solve complex problems.
+              </p>
+              <p>
+                I love learning new technologies and actively participate in the open-source community. In my spare time, I enjoy writing technical blogs,
+                sharing my learning insights and development experiences, hoping to help more developers.
+              </p>
+              <p>
+                When I'm not coding, you might find me reading, hiking, or trying out new coffee shops.
+                I believe maintaining a work-life balance is key to continuously creating quality work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="py-24 md:py-32">
+        <div class="container-swiss">
+          <div class="mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-semibold">
+              Tech <span class="text-accent">Skills</span>
+            </h2>
+            <p class="mt-6 text-text-secondary max-w-2xl">
+              Years of practical experience have helped me master the core technology stack of modern frontend development, while continuously following technology trends.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {SKILLS.map((skill, index) => (
+              <div class="bg-cream-dark p-8">
+                <span class="text-accent font-display text-4xl font-bold">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 class="font-display text-xl font-semibold mt-4">
+                  {skillCategoryTranslations[skill.category] || skill.category}
+                </h3>
+                <ul class="mt-6 space-y-2">
+                  {skill.items.map((item) => (
+                    <li class="flex items-center gap-2 text-text-secondary">
+                      <span class="w-1.5 h-1.5 bg-accent"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Connect Section -->
+      <section class="py-24 md:py-32 bg-black text-white">
+        <div class="container-swiss">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-semibold leading-tight">
+                Let's <span class="text-accent">Connect</span>
+              </h2>
+              <p class="mt-6 text-white/60 text-lg max-w-md">
+                {t('about.contactDescription')}
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href={SOCIAL_LINKS.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 bg-white/10 hover:bg-accent px-6 py-4 transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span class="font-medium">GitHub</span>
+              </a>
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                class="flex items-center gap-3 bg-accent hover:bg-accent-hover px-6 py-4 transition-colors text-white"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="font-medium">Email</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
