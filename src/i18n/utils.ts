@@ -37,7 +37,17 @@ export function getRouteFromUrl(url: URL): string {
 }
 
 export function getLocalizedUrl(url: URL, targetLang: Lang): string {
-  const route = getRouteFromUrl(url);
+  let route = getRouteFromUrl(url);
+
+  // 处理博客文章的语言后缀切换
+  // 例如: /blog/browser-storage-guide-zh -> /blog/browser-storage-guide-en
+  if (route.startsWith('/blog/') && route !== '/blog/') {
+    const blogSlugMatch = route.match(/^\/blog\/(.+?)(?:-(zh|en))?$/);
+    if (blogSlugMatch) {
+      const baseSlug = blogSlugMatch[1].replace(/-(zh|en)$/, '');
+      route = `/blog/${baseSlug}-${targetLang}`;
+    }
+  }
 
   if (targetLang === defaultLang) {
     return route || '/';

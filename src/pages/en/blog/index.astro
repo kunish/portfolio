@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../../../components/BaseHead.astro';
 import Footer from '../../../components/Footer.astro';
@@ -15,6 +14,9 @@ const allPosts = await getCollection('blog');
 const posts = allPosts
   .filter((post) => post.data.lang === 'en')
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 生成 OG 图片路径
+const getOgImagePath = (postId: string) => `/og/${postId}.png`;
 ---
 
 <!doctype html>
@@ -48,20 +50,15 @@ const posts = allPosts
             <article class="mb-16">
               <a href={`/en/blog/${posts[0].id}/`} class="group block">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                  <div class="aspect-[4/3] bg-black overflow-hidden">
-                    {posts[0].data.heroImage ? (
-                      <Image
-                        width={800}
-                        height={600}
-                        src={posts[0].data.heroImage}
-                        alt={posts[0].data.title}
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    ) : (
-                      <div class="w-full h-full flex items-center justify-center">
-                        <span class="font-display text-8xl font-bold text-accent">01</span>
-                      </div>
-                    )}
+                  <div class="aspect-[1200/630] bg-black overflow-hidden rounded-lg">
+                    <img
+                      width={1200}
+                      height={630}
+                      src={getOgImagePath(posts[0].id)}
+                      alt={posts[0].data.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="eager"
+                    />
                   </div>
                   <div class="lg:pl-8">
                     <span class="tag tag-accent mb-4">{t('blog.featured')}</span>
@@ -85,25 +82,18 @@ const posts = allPosts
 
           <!-- Posts List -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {posts.slice(1).map((post, index) => (
+            {posts.slice(1).map((post) => (
               <article class="blog-card">
                 <a href={`/en/blog/${post.id}/`} class="block">
-                  <div class="aspect-[4/3] bg-black mb-6 overflow-hidden">
-                    {post.data.heroImage ? (
-                      <Image
-                        width={600}
-                        height={450}
-                        src={post.data.heroImage}
-                        alt={post.data.title}
-                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      />
-                    ) : (
-                      <div class="w-full h-full flex items-center justify-center">
-                        <span class="font-display text-6xl font-bold text-accent">
-                          {String(index + 2).padStart(2, '0')}
-                        </span>
-                      </div>
-                    )}
+                  <div class="aspect-[1200/630] bg-black mb-6 overflow-hidden rounded-lg">
+                    <img
+                      width={600}
+                      height={315}
+                      src={getOgImagePath(post.id)}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
                   </div>
                   <div class="text-text-muted text-sm uppercase tracking-wider mb-2">
                     <FormattedDate date={post.data.pubDate} lang="en" />

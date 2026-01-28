@@ -10,13 +10,26 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
+	ogImage?: string; // 动态生成的 OG 图片 URL
 	article?: boolean;
 	publishedTime?: Date;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage, article = false, publishedTime } = Astro.props;
+const { title, description, image, ogImage, article = false, publishedTime } = Astro.props;
+
+// 优先使用动态 OG 图片，其次使用文章封面图，最后使用默认图片
+const resolvedImage = image || FallbackImage;
+
+// 开发模式下使用当前请求的 origin，生产环境使用配置的 site
+const baseUrl = import.meta.env.DEV
+	? new URL(Astro.url).origin
+	: Astro.site?.toString() || new URL(Astro.url).origin;
+
+const ogImageUrl = ogImage
+	? new URL(ogImage, baseUrl).toString()
+	: new URL(resolvedImage.src, baseUrl).toString();
 
 const fullTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 ---
@@ -54,7 +67,7 @@ const fullTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={ogImageUrl} />
 <meta property="og:site_name" content={SITE_TITLE} />
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:locale:alternate" content="en_US" />
@@ -70,7 +83,7 @@ const fullTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 <meta name="twitter:url" content={Astro.url} />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta name="twitter:image" content={ogImageUrl} />
 
 <!-- Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify({

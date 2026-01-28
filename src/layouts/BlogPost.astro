@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -10,17 +9,21 @@ import { useTranslations, useTranslatedPath } from '../i18n/utils';
 
 type Props = CollectionEntry<'blog'>['data'] & {
   lang?: Lang;
+  slug?: string;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, lang = 'zh' } = Astro.props;
+const { title, description, pubDate, updatedDate, lang = 'zh', slug } = Astro.props;
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+
+// 生成动态 OG 图片路径
+const ogImage = slug ? `/og/${slug}.png` : undefined;
 ---
 
 <!doctype html>
 <html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
   <head>
-    <BaseHead title={`${title} - ${t('site.title')}`} description={description} image={heroImage} article={true} publishedTime={pubDate} />
+    <BaseHead title={`${title} - ${t('site.title')}`} description={description} ogImage={ogImage} article={true} publishedTime={pubDate} />
   </head>
 
   <body>
@@ -59,17 +62,18 @@ const translatePath = useTranslatedPath(lang);
         </div>
       </section>
 
-      <!-- Hero Image -->
-      {heroImage && (
+      <!-- Hero Image - 使用动态生成的 OG 图片 -->
+      {ogImage && (
         <section class="pb-16">
           <div class="container-swiss">
-            <div class="aspect-[21/9] bg-black overflow-hidden">
-              <Image
-                width={1400}
-                height={600}
-                src={heroImage}
+            <div class="aspect-[1200/630] bg-black overflow-hidden rounded-lg shadow-lg">
+              <img
+                width={1200}
+                height={630}
+                src={ogImage}
                 alt={title}
                 class="w-full h-full object-cover"
+                loading="eager"
               />
             </div>
           </div>
