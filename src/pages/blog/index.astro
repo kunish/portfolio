@@ -10,13 +10,11 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-// Filter posts by current language
 const allPosts = await getCollection('blog');
 const posts = allPosts
   .filter((post) => (post.data.lang || 'zh') === lang)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// 生成 OG 图片路径
 const getOgImagePath = (postId: string) => `/og/${postId}.png`;
 ---
 
@@ -29,47 +27,44 @@ const getOgImagePath = (postId: string) => `/og/${postId}.png`;
     <Header />
 
     <main class="pt-20">
-      <!-- Hero Section -->
-      <section class="py-24 md:py-32">
-        <div class="container-swiss">
-          <div class="max-w-3xl">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tight leading-[0.95]">
-              {lang === 'zh' ? '技术' : 'Tech '}<span class="text-accent">{t('blog.title')}</span>
+      <section class="py-24 md:py-32 gradient-mesh noise-overlay">
+        <div class="container-swiss relative z-10">
+          <div class="max-w-3xl hero-animate-title">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display tracking-tight leading-[0.95]">
+              {lang === 'zh' ? '技术' : 'Tech '}<span class="text-accent italic">{t('blog.title')}</span>
             </h1>
-            <p class="mt-8 text-xl text-text-secondary leading-relaxed">
+            <p class="mt-8 text-xl text-text-secondary leading-relaxed hero-animate-subtitle">
               {t('blog.description')}
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Posts Grid -->
       <section class="pb-24 md:pb-32">
         <div class="container-swiss">
-          <!-- Featured Post -->
           {posts.length > 0 && (
-            <article class="mb-16">
+            <article class="mb-16 animate-on-scroll" data-animation="fadeInUp">
               <a href={`${translatePath('/blog')}/${posts[0].id}/`} class="group block">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                  <div class="aspect-[1200/630] bg-black overflow-hidden rounded-lg">
+                  <div class="aspect-[1200/630] bg-black overflow-hidden blog-card-image">
                     <img
                       width={1200}
                       height={630}
                       src={getOgImagePath(posts[0].id)}
                       alt={posts[0].data.title}
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      class="w-full h-full object-cover"
                       loading="eager"
                     />
                   </div>
                   <div class="lg:pl-8">
                     <span class="tag tag-accent mb-4">{t('blog.featured')}</span>
-                    <h2 class="text-3xl md:text-4xl font-display font-semibold group-hover:text-accent transition-colors">
+                    <h2 class="text-3xl md:text-4xl font-display group-hover:text-accent transition-colors duration-300">
                       {posts[0].data.title}
                     </h2>
                     <p class="mt-4 text-text-secondary text-lg line-clamp-3">
                       {posts[0].data.description}
                     </p>
-                    <div class="mt-6 flex items-center gap-4 text-text-muted text-sm uppercase tracking-wider">
+                    <div class="mt-6 flex items-center gap-4 text-text-muted text-sm uppercase tracking-[0.12em]">
                       <FormattedDate date={posts[0].data.pubDate} lang={lang} />
                     </div>
                   </div>
@@ -78,25 +73,23 @@ const getOgImagePath = (postId: string) => `/og/${postId}.png`;
             </article>
           )}
 
-          <!-- Divider -->
           <div class="divider mb-16"></div>
 
-          <!-- Posts List -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {posts.slice(1).map((post) => (
-              <article class="blog-card">
-                <a href={`${translatePath('/blog')}/${post.id}/`} class="block">
-                  <div class="aspect-[1200/630] bg-black mb-6 overflow-hidden rounded-lg">
+            {posts.slice(1).map((post, index) => (
+              <article class="blog-card animate-on-scroll" data-animation="fadeInUp" style={`--delay: ${index * 0.08}s`}>
+                <a href={`${translatePath('/blog')}/${post.id}/`} class="block group">
+                  <div class="aspect-[1200/630] bg-black mb-6 overflow-hidden blog-card-image">
                     <img
                       width={600}
                       height={315}
                       src={getOgImagePath(post.id)}
                       alt={post.data.title}
-                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      class="w-full h-full object-cover"
                       loading="lazy"
                     />
                   </div>
-                  <div class="text-text-muted text-sm uppercase tracking-wider mb-2">
+                  <div class="text-text-muted text-sm uppercase tracking-[0.12em] mb-2">
                     <FormattedDate date={post.data.pubDate} lang={lang} />
                   </div>
                   <h3 class="blog-card-title">{post.data.title}</h3>
@@ -107,13 +100,13 @@ const getOgImagePath = (postId: string) => `/og/${postId}.png`;
           </div>
 
           {posts.length === 0 && (
-            <div class="text-center py-24">
-              <span class="font-display text-8xl font-bold text-accent opacity-20">404</span>
+            <div class="text-center py-24 animate-on-scroll" data-animation="fadeInUp">
+              <span class="font-display text-8xl text-accent opacity-20 italic">404</span>
               <p class="mt-4 text-text-secondary text-lg">
                 {lang === 'zh' ? '暂无博客文章' : 'No blog posts available'}
               </p>
               {lang === 'en' && (
-                <a href="/blog" class="btn btn-outline mt-6">View Chinese Posts</a>
+                <a href="/blog" class="btn btn-outline mt-6"><span>View Chinese Posts</span></a>
               )}
             </div>
           )}
@@ -122,5 +115,26 @@ const getOgImagePath = (postId: string) => `/og/${postId}.png`;
     </main>
 
     <Footer />
+
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>

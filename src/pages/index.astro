@@ -11,7 +11,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-// Filter posts by current language, default to 'zh' if no lang specified
 const allPosts = await getCollection('blog');
 const posts = allPosts
   .filter((post) => (post.data.lang || 'zh') === lang)
@@ -28,103 +27,94 @@ const posts = allPosts
     <Header />
 
     <main>
-      <!-- Hero Section -->
-      <section class="min-h-screen flex items-center pt-20">
-        <div class="container-swiss py-12 md:py-20">
+      <section class="min-h-screen flex items-center pt-20 gradient-mesh noise-overlay">
+        <div class="container-swiss py-12 md:py-20 relative z-10">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <!-- Text Content -->
             <div class="lg:col-span-7">
-              <h1 class="hero-title">
+              <h1 class="hero-title hero-animate-title">
                 {t('hero.title.line1')}<br />
                 <span class="accent">{t('hero.title.line2')}</span><br />
                 {t('hero.title.line3')}
               </h1>
-              <p class="mt-8 text-lg md:text-xl text-text-secondary max-w-xl leading-relaxed">
+              <p class="mt-8 text-lg md:text-xl text-text-secondary max-w-xl leading-relaxed hero-animate-subtitle">
                 {t('hero.description')}
               </p>
-              <div class="mt-10 flex flex-wrap gap-4">
-                <a href={translatePath('/blog')} class="btn btn-primary">{t('nav.blog')}</a>
-                <a href={translatePath('/about')} class="btn btn-outline">{t('nav.about')}</a>
+              <div class="mt-10 flex flex-wrap gap-4 hero-animate-cta">
+                <a href={translatePath('/blog')} class="btn btn-primary"><span>{t('nav.blog')}</span></a>
+                <a href={translatePath('/about')} class="btn btn-outline"><span>{t('nav.about')}</span></a>
               </div>
             </div>
 
-            <!-- Profile Card -->
-            <div class="lg:col-span-5 hidden lg:block">
-              <div class="bg-black text-white p-8">
-                <!-- Status Badge -->
+            <div class="lg:col-span-5 hidden lg:block hero-animate-card">
+              <div class="bg-black text-white p-8 card-hover">
                 <div class="flex items-center gap-2 mb-8">
                   <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                  <span class="text-sm text-white/70 uppercase tracking-wider">{t('hero.available')}</span>
+                  <span class="text-sm text-white/70 uppercase tracking-[0.15em]">{t('hero.available')}</span>
                 </div>
 
-                <!-- Profile Info -->
                 <div class="space-y-6">
                   <div>
-                    <span class="text-xs text-white/40 uppercase tracking-widest">{t('hero.role')}</span>
-                    <p class="font-display text-2xl font-semibold mt-1">{PERSONAL_INFO.name}</p>
+                    <span class="text-xs text-white/40 uppercase tracking-[0.2em]">{t('hero.role')}</span>
+                    <p class="font-display text-2xl mt-1">{PERSONAL_INFO.name}</p>
                   </div>
 
                   <div class="grid grid-cols-2 gap-6">
                     <div>
-                      <span class="text-xs text-white/40 uppercase tracking-widest">{t('hero.location')}</span>
+                      <span class="text-xs text-white/40 uppercase tracking-[0.2em]">{t('hero.location')}</span>
                       <p class="mt-1 text-white/80">{PERSONAL_INFO.location}</p>
                     </div>
                     <div>
-                      <span class="text-xs text-white/40 uppercase tracking-widest">{t('hero.focus')}</span>
+                      <span class="text-xs text-white/40 uppercase tracking-[0.2em]">{t('hero.focus')}</span>
                       <p class="mt-1 text-white/80">{t('hero.focusValue')}</p>
                     </div>
                   </div>
 
-                  <!-- Tech Stack Preview -->
                   <div class="pt-6 border-t border-white/10">
-                    <span class="text-xs text-white/40 uppercase tracking-widest">{lang === 'zh' ? '技术栈' : 'Tech Stack'}</span>
+                    <span class="text-xs text-white/40 uppercase tracking-[0.2em]">{lang === 'zh' ? '技术栈' : 'Tech Stack'}</span>
                     <div class="flex flex-wrap gap-2 mt-3">
                       {SKILLS[0].items.slice(0, 4).map((skill) => (
-                        <span class="px-3 py-1 bg-white/10 text-sm text-white/80">{skill}</span>
+                        <span class="px-3 py-1.5 bg-white/10 text-sm text-white/80 transition-colors hover:bg-accent hover:text-white cursor-default">{skill}</span>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                <!-- Accent Bar -->
-                <div class="mt-8 h-1 bg-accent"></div>
+                <div class="mt-8 h-1 bg-accent line-reveal"></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Stats Section -->
-      <section class="bg-black text-white py-16">
+      <section class="bg-black text-white py-16 md:py-20">
         <div class="container-swiss">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 animate-on-scroll" data-animation="fadeInUp">
+            <div class="text-center md:text-left">
               <span class="swiss-number">5+</span>
-              <p class="mt-2 text-white/60 uppercase tracking-wider text-sm">{t('stats.experience')}</p>
+              <p class="mt-2 text-white/60 uppercase tracking-[0.15em] text-sm">{t('stats.experience')}</p>
             </div>
-            <div>
+            <div class="text-center md:text-left">
               <span class="swiss-number">50+</span>
-              <p class="mt-2 text-white/60 uppercase tracking-wider text-sm">{t('stats.projects')}</p>
+              <p class="mt-2 text-white/60 uppercase tracking-[0.15em] text-sm">{t('stats.projects')}</p>
             </div>
-            <div>
+            <div class="text-center md:text-left">
               <span class="swiss-number">20+</span>
-              <p class="mt-2 text-white/60 uppercase tracking-wider text-sm">{lang === 'zh' ? '技术文章' : 'Articles'}</p>
+              <p class="mt-2 text-white/60 uppercase tracking-[0.15em] text-sm">{lang === 'zh' ? '技术文章' : 'Articles'}</p>
             </div>
-            <div>
+            <div class="text-center md:text-left">
               <span class="swiss-number">∞</span>
-              <p class="mt-2 text-white/60 uppercase tracking-wider text-sm">{lang === 'zh' ? '学习热情' : 'Passion'}</p>
+              <p class="mt-2 text-white/60 uppercase tracking-[0.15em] text-sm">{lang === 'zh' ? '学习热情' : 'Passion'}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Skills Section -->
       <section class="py-24 md:py-32">
         <div class="container-swiss">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div class="lg:col-span-4">
-              <h2 class="text-4xl md:text-5xl font-display font-semibold">
-                {lang === 'zh' ? '技术' : 'Tech'}<br /><span class="text-accent">{lang === 'zh' ? '栈' : 'Stack'}</span>
+            <div class="lg:col-span-4 animate-on-scroll" data-animation="fadeInUp">
+              <h2 class="text-4xl md:text-5xl font-display">
+                {lang === 'zh' ? '技术' : 'Tech'}<br /><span class="text-accent italic">{lang === 'zh' ? '栈' : 'Stack'}</span>
               </h2>
               <p class="mt-6 text-text-secondary">
                 {lang === 'zh'
@@ -135,13 +125,13 @@ const posts = allPosts
             <div class="lg:col-span-8">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {SKILLS.map((skill, index) => (
-                  <div class="border-t border-text-primary/10 pt-6">
+                  <div class="border-t border-text-primary/10 pt-6 animate-on-scroll" data-animation="fadeInUp" style={`--delay: ${index * 0.1}s`}>
                     <div class="flex items-start gap-4">
-                      <span class="text-accent font-display text-3xl font-bold">
+                      <span class="text-accent font-display text-3xl italic">
                         {String(index + 1).padStart(2, '0')}
                       </span>
                       <div>
-                        <h3 class="font-display text-xl font-semibold">
+                        <h3 class="font-display text-xl">
                           {lang === 'zh' ? skill.category : (
                             skill.category === '前端框架' ? 'Frontend Frameworks' :
                             skill.category === '语言' ? 'Languages' :
@@ -163,13 +153,12 @@ const posts = allPosts
         </div>
       </section>
 
-      <!-- Latest Posts Section -->
-      <section class="py-24 md:py-32 bg-cream-dark">
-        <div class="container-swiss">
-          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+      <section class="py-24 md:py-32 bg-cream-dark noise-overlay">
+        <div class="container-swiss relative z-10">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 animate-on-scroll" data-animation="fadeInUp">
             <div>
-              <h2 class="text-4xl md:text-5xl font-display font-semibold">
-                {lang === 'zh' ? '最新' : 'Latest '}<span class="text-accent">{lang === 'zh' ? '文章' : 'Posts'}</span>
+              <h2 class="text-4xl md:text-5xl font-display">
+                {lang === 'zh' ? '最新' : 'Latest '}<span class="text-accent italic">{lang === 'zh' ? '文章' : 'Posts'}</span>
               </h2>
               <p class="mt-4 text-text-secondary max-w-md">
                 {lang === 'zh'
@@ -177,29 +166,29 @@ const posts = allPosts
                   : 'Sharing technical insights, development experiences, and the latest in frontend ecosystem.'}
               </p>
             </div>
-            <a href={translatePath('/blog')} class="btn btn-outline shrink-0">{t('section.viewAll')}</a>
+            <a href={translatePath('/blog')} class="btn btn-outline shrink-0"><span>{t('section.viewAll')}</span></a>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {posts.map((post, index) => (
-              <article class="blog-card">
-                <a href={`${translatePath('/blog')}/${post.id}/`} class="block">
-                  <div class="aspect-[4/3] bg-black mb-6 overflow-hidden relative">
+              <article class="blog-card animate-on-scroll" data-animation="fadeInUp" style={`--delay: ${index * 0.1}s`}>
+                <a href={`${translatePath('/blog')}/${post.id}/`} class="block group">
+                  <div class="aspect-[4/3] bg-black mb-6 overflow-hidden relative blog-card-image">
                     {post.data.heroImage ? (
                       <img
                         src={post.data.heroImage.src}
                         alt={post.data.title}
-                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        class="w-full h-full object-cover"
                       />
                     ) : (
                       <div class="w-full h-full flex items-center justify-center">
-                        <span class="font-display text-6xl font-bold text-accent">
+                        <span class="font-display text-6xl text-accent italic opacity-60">
                           {String(index + 1).padStart(2, '0')}
                         </span>
                       </div>
                     )}
                   </div>
-                  <div class="text-text-muted text-sm uppercase tracking-wider mb-2">
+                  <div class="text-text-muted text-sm uppercase tracking-[0.12em] mb-2">
                     <FormattedDate date={post.data.pubDate} lang={lang} />
                   </div>
                   <h3 class="blog-card-title">{post.data.title}</h3>
@@ -211,12 +200,14 @@ const posts = allPosts
         </div>
       </section>
 
-      <!-- CTA Section -->
       <section class="py-24 md:py-32">
         <div class="container-swiss">
-          <div class="bg-accent text-white p-12 md:p-16 lg:p-24">
-            <div class="max-w-2xl">
-              <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-semibold leading-tight">
+          <div class="bg-accent text-white p-12 md:p-16 lg:p-24 relative overflow-hidden animate-on-scroll" data-animation="scaleIn">
+            <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+              <div class="absolute inset-0 bg-gradient-to-l from-black/20 to-transparent"></div>
+            </div>
+            <div class="max-w-2xl relative z-10">
+              <h2 class="text-4xl md:text-5xl lg:text-6xl font-display leading-tight">
                 {t('cta.title')}
               </h2>
               <p class="mt-6 text-white/80 text-lg">
@@ -224,10 +215,10 @@ const posts = allPosts
               </p>
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                class="inline-flex items-center gap-2 mt-8 bg-white text-accent px-8 py-4 font-medium uppercase tracking-wider hover:bg-black hover:text-white transition-colors"
+                class="inline-flex items-center gap-3 mt-8 bg-white text-accent px-8 py-4 font-medium uppercase tracking-[0.12em] hover:bg-black hover:text-white transition-all duration-300 group"
               >
-                {t('cta.button')}
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span>{t('cta.button')}</span>
+                <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -238,5 +229,26 @@ const posts = allPosts
     </main>
 
     <Footer />
+
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -80px 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>
