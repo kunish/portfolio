@@ -2,7 +2,7 @@
 title: 'CSS Container Queries：响应式设计的革命性突破'
 description: '深入了解 CSS 容器查询如何解决媒体查询的局限性，实现真正的组件级响应式设计'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'css-container-queries'
 ---

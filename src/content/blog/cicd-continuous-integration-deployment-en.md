@@ -2,7 +2,7 @@
 title: 'CI/CD Continuous Integration and Deployment: Automated Delivery Pipelines'
 description: 'Master GitHub Actions, GitLab CI, automated testing, deployment strategies and release management'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'cicd-continuous-integration-deployment'
 ---

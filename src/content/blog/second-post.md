@@ -2,7 +2,7 @@
 title: '第二篇文章'
 description: '探索现代前端开发的最佳实践'
 pubDate: 'Jul 15 2022'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 ---
 

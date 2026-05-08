@@ -2,7 +2,7 @@
 title: 'PWA 完全指南：构建像原生应用一样的 Web 应用'
 description: '深入理解 Progressive Web Apps 的核心技术，掌握 Service Worker、缓存策略和离线体验的实现方法'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'pwa-complete-guide'
 ---

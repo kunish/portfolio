@@ -2,7 +2,7 @@
 title: 'JavaScript Web Notifications API 完全指南'
 description: '掌握浏览器通知：权限请求、通知创建、交互处理和 Service Worker 通知'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-web-notifications-guide'
 ---

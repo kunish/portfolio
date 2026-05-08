@@ -2,7 +2,7 @@
 title: 'JavaScript 函数完全指南'
 description: '掌握函数声明、箭头函数、高阶函数、柯里化等核心概念'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-function-guide'
 ---

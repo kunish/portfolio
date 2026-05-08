@@ -2,7 +2,7 @@
 title: 'Monorepo 工程化实践：大型项目的代码管理之道'
 description: '深入理解 Monorepo 架构，掌握 pnpm workspace、Turborepo 等工具的实战技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'monorepo-engineering'
 ---

@@ -2,7 +2,7 @@
 title: 'JavaScript Page Visibility API 完全指南'
 description: '掌握页面可见性检测：标签页切换监听、性能优化、资源管理与用户体验提升'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-page-visibility-api-guide'
 ---

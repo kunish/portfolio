@@ -2,7 +2,7 @@
 title: 'HTTP 缓存策略：提升 Web 应用性能'
 description: '掌握浏览器缓存、CDN 缓存、Service Worker 缓存的最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'http-caching-guide'
 ---

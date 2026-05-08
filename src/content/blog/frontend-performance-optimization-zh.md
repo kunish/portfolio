@@ -2,7 +2,7 @@
 title: '前端性能优化：从加载到渲染的全链路提升'
 description: '掌握 Core Web Vitals、资源优化、渲染性能、缓存策略和监控体系'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'frontend-performance-optimization'
 ---

@@ -2,7 +2,7 @@
 title: 'Vite 深度解析：为什么它如此之快'
 description: '深入理解 Vite 的核心原理，掌握现代前端构建工具的精髓'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'vite-deep-dive'
 ---

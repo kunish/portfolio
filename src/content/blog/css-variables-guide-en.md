@@ -2,7 +2,7 @@
 title: 'CSS Variables (Custom Properties) Complete Guide'
 description: 'Master CSS variable declaration, usage, scoping, and dynamic modification techniques'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'css-variables-guide'
 ---

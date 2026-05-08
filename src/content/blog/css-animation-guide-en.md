@@ -2,7 +2,7 @@
 title: 'CSS Animation Complete Guide: From Transitions to Keyframe Animations'
 description: 'Master transition, animation, transform and performance optimization techniques'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'css-animation-guide'
 ---

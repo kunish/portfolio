@@ -2,7 +2,7 @@
 title: 'JavaScript 日期时间处理：从原生 API 到现代库'
 description: '掌握 Date 对象、Intl API、时区处理、日期库选择和常见陷阱'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'date-time-guide'
 ---

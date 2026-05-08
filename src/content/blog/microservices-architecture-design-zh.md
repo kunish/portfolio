@@ -2,7 +2,7 @@
 title: '微服务架构设计与实践：从单体到分布式'
 description: '掌握微服务拆分策略、服务通信、数据一致性和运维治理'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'microservices-architecture-design'
 ---

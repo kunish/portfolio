@@ -2,7 +2,7 @@
 title: 'JavaScript Clipboard API 完全指南'
 description: '掌握剪贴板操作：读写文本、复制图片、处理富文本与权限管理'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-clipboard-api-guide'
 ---

@@ -2,7 +2,7 @@
 title: 'JavaScript Web Workers API 完全指南'
 description: '掌握多线程编程：Dedicated Worker、Shared Worker、消息传递与性能优化'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-web-workers-api-guide'
 ---

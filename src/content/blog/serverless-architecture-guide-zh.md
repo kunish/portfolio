@@ -2,7 +2,7 @@
 title: 'Serverless 架构：无服务器应用开发指南'
 description: '掌握 AWS Lambda、Vercel、Cloudflare Workers 等无服务器平台的最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'serverless-architecture-guide'
 ---

@@ -2,7 +2,7 @@
 title: 'TypeScript 入门基础教程'
 description: '从零开始学习 TypeScript 类型系统、接口、泛型等核心概念'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'typescript-basics-guide'
 ---

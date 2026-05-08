@@ -2,7 +2,7 @@
 title: 'Web 安全最佳实践：从 OWASP 到实战防护'
 description: '掌握 XSS、CSRF、SQL 注入防护，认证授权、HTTPS、安全头配置等安全实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'web-security-best-practices'
 ---

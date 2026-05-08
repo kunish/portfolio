@@ -2,7 +2,7 @@
 title: 'JavaScript WebSocket API Complete Guide'
 description: 'Master real-time communication: WebSocket connections, message handling, heartbeat detection, and reconnection mechanisms'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-websocket-api-guide'
 ---

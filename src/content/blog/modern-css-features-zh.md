@@ -2,7 +2,7 @@
 title: '现代 CSS 新特性：2025 必知必会'
 description: '探索 :has()、Cascade Layers、Subgrid 等现代 CSS 特性，提升你的样式开发效率'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'modern-css-features'
 ---

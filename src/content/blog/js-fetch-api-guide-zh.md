@@ -2,7 +2,7 @@
 title: 'JavaScript Fetch API 完全指南'
 description: '掌握现代网络请求：基础用法、请求配置、响应处理、错误处理与高级技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-fetch-api-guide'
 ---

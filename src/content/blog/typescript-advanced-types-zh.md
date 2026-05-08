@@ -2,7 +2,7 @@
 title: 'TypeScript 高级类型：从入门到精通'
 description: '掌握 TypeScript 高级类型技巧，让类型系统成为你的开发利器'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'typescript-advanced-types'
 ---

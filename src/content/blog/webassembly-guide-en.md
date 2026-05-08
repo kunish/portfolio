@@ -2,7 +2,7 @@
 title: 'WebAssembly Guide: Running High-Performance Code in the Browser'
 description: 'Master the fundamentals of WebAssembly and learn to write high-performance web applications using Rust, C++, and more'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'webassembly-guide'
 ---

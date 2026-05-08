@@ -2,7 +2,7 @@
 title: 'GraphQL API 设计与实践：构建灵活高效的数据接口'
 description: '掌握 GraphQL Schema 设计、查询优化、N+1 问题解决和安全实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'graphql-api-design-practices'
 ---

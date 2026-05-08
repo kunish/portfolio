@@ -2,7 +2,7 @@
 title: 'JavaScript Proxy 与 Reflect 完全指南'
 description: '掌握 Proxy 代理对象、Reflect 反射 API、元编程技术和实际应用场景'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-proxy-reflect-guide'
 ---

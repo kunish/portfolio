@@ -2,7 +2,7 @@
 title: 'Web 图片优化：从格式选择到自动化处理'
 description: '掌握图片格式、响应式图片、懒加载、CDN 分发和自动化优化工具'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'image-optimization-guide'
 ---

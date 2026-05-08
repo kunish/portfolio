@@ -2,7 +2,7 @@
 title: 'ESLint 与 Prettier：构建一致的代码风格'
 description: '掌握代码检查工具配置、规则定制和团队协作最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'eslint-prettier-guide'
 ---

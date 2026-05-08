@@ -2,7 +2,7 @@
 title: 'JWT 认证完全指南：原理与最佳实践'
 description: '深入理解 JSON Web Token 的结构、签名验证、安全存储和常见攻击防护'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'jwt-auth-guide'
 ---

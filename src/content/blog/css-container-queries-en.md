@@ -2,7 +2,7 @@
 title: 'CSS Container Queries: A Revolutionary Breakthrough in Responsive Design'
 description: 'Discover how CSS Container Queries solve the limitations of media queries and enable true component-level responsive design'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'css-container-queries'
 ---

@@ -2,7 +2,7 @@
 title: 'Form Validation Best Practices: Building User-Friendly Input Experience'
 description: 'Master HTML5 validation, JavaScript validation, form libraries and accessible validation techniques'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'form-validation-guide'
 ---

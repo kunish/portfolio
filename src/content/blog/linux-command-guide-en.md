@@ -2,7 +2,7 @@
 title: 'Linux Command Line Practical Guide: Essential Developer Skills'
 description: 'Master common Linux commands, file operations, process management, network tools and Shell scripting basics'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'linux-command-guide'
 ---

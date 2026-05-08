@@ -2,7 +2,7 @@
 title: 'Fetch API 完全指南：现代 HTTP 请求详解'
 description: '掌握 Fetch 请求配置、响应处理、拦截器封装和错误处理'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'fetch-api-guide'
 ---

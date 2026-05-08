@@ -2,7 +2,7 @@
 title: 'CSS Grid 布局完全指南：从基础到复杂布局'
 description: '掌握 Grid 容器属性、网格线定位、响应式布局和实战案例'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'css-grid-guide'
 ---

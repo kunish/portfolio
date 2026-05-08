@@ -2,7 +2,7 @@
 title: 'JavaScript URL API Complete Guide'
 description: 'Master URL parsing, URLSearchParams, URL construction, and encoding techniques'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-url-api-guide'
 ---

@@ -2,7 +2,7 @@
 title: 'Signals: The Future of Frontend Reactive Programming'
 description: 'Deep dive into Signals reactive primitives and explore why major frameworks are embracing this paradigm'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'signals-reactivity'
 ---

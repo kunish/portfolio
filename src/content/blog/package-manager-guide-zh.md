@@ -2,7 +2,7 @@
 title: 'JavaScript 包管理器：npm、pnpm、Yarn 深度对比'
 description: '掌握现代包管理器的特性、工作原理和最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'package-manager-guide'
 ---

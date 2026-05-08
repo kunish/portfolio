@@ -2,7 +2,7 @@
 title: '数据库设计与优化：从建模到性能调优'
 description: '掌握数据库设计范式、索引策略、查询优化和高可用架构'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'database-design-optimization'
 ---

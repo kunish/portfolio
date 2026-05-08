@@ -2,7 +2,7 @@
 title: 'React Server Components：重新定义全栈开发'
 description: '深入理解 React Server Components 的工作原理，掌握服务端优先的 React 开发模式'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'react-server-components'
 ---

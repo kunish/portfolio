@@ -2,7 +2,7 @@
 title: 'Regular Expressions Complete Guide: From Basics to Practice'
 description: 'Master regex syntax, common patterns, performance optimization and practical applications'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'regex-guide'
 ---

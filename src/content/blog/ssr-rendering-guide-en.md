@@ -2,7 +2,7 @@
 title: 'Server-Side Rendering Guide: Deep Dive into SSR, SSG and ISR'
 description: 'Master rendering mode selection and performance optimization in Next.js, Nuxt.js and other frameworks'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'ssr-rendering-guide'
 ---

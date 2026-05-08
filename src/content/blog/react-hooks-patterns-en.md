@@ -2,7 +2,7 @@
 title: 'React Hooks Advanced Guide: Custom Hooks and Best Practices'
 description: 'Deep dive into useState, useEffect, useCallback and other common Hooks plus custom Hook patterns'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'react-hooks-patterns'
 ---

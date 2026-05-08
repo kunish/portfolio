@@ -2,7 +2,7 @@
 title: '服务端渲染完全指南：SSR、SSG 与 ISR 深度解析'
 description: '掌握 Next.js、Nuxt.js 等框架的渲染模式选择和性能优化'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'ssr-rendering-guide'
 ---

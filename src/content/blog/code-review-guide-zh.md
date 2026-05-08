@@ -2,7 +2,7 @@
 title: 'Code Review 最佳实践：提升代码质量与团队协作'
 description: '掌握代码审查技巧、PR 规范、自动化工具和建设性反馈方法'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'code-review-guide'
 ---

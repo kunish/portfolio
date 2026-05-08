@@ -2,7 +2,7 @@
 title: 'Complete GraphQL Guide: Building Flexible and Efficient APIs'
 description: 'Master GraphQL core concepts and practical techniques with Apollo, Schema design, and performance optimization for modern APIs'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'graphql-api-guide'
 ---

@@ -2,7 +2,7 @@
 title: 'JavaScript Map 和 Set 完全指南'
 description: '掌握 ES6 集合类型 Map、Set、WeakMap、WeakSet 的使用方法和最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-map-set-guide'
 ---

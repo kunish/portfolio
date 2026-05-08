@@ -2,7 +2,7 @@
 title: 'Webpack 核心概念与配置指南'
 description: '深入理解 Webpack 打包原理、核心配置、插件系统和性能优化'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'webpack-guide'
 ---

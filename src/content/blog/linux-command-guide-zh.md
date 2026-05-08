@@ -2,7 +2,7 @@
 title: 'Linux 命令行实用指南：开发者必备技能'
 description: '掌握常用 Linux 命令、文件操作、进程管理、网络工具和 Shell 脚本基础'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'linux-command-guide'
 ---

@@ -2,7 +2,7 @@
 title: 'Tailwind CSS 实战指南：从基础到高级技巧'
 description: '掌握 Tailwind CSS 配置、响应式设计、自定义组件和性能优化'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'tailwind-css-best-practices'
 ---

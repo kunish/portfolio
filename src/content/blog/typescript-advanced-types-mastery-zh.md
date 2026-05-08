@@ -2,7 +2,7 @@
 title: 'TypeScript 高级类型：从入门到精通'
 description: '掌握泛型、条件类型、映射类型、类型推断和实用工具类型'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'typescript-advanced-types-mastery'
 ---

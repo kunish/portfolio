@@ -2,7 +2,7 @@
 title: 'JavaScript Object Methods Complete Guide'
 description: 'Master Object static methods, property operations, object traversal, and practical techniques'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-object-methods-guide'
 ---

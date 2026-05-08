@@ -2,7 +2,7 @@
 title: 'JavaScript ResizeObserver API 完全指南'
 description: '掌握元素尺寸监听：响应式组件、自适应布局、性能优化与实战应用'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-resize-observer-guide'
 ---

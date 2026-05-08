@@ -2,7 +2,7 @@
 title: 'SEO 优化实战指南：提升网站搜索排名'
 description: '掌握技术 SEO、内容优化、结构化数据和 Core Web Vitals'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'seo-optimization-guide'
 ---

@@ -2,7 +2,7 @@
 title: 'JavaScript Page Visibility API Complete Guide'
 description: 'Master page visibility detection: tab switching, performance optimization, resource management, and user experience enhancement'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-page-visibility-api-guide'
 ---

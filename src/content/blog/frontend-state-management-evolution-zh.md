@@ -2,7 +2,7 @@
 title: '前端状态管理：从 Redux 到现代方案的演进'
 description: '掌握 Redux、Zustand、Jotai、React Query 等状态管理方案的选型与实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'frontend-state-management-evolution'
 ---

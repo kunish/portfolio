@@ -2,7 +2,7 @@
 title: '消息队列实战：异步处理与系统解耦'
 description: '掌握 RabbitMQ、Kafka 核心概念、消息模式、可靠投递和分布式事务'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'message-queue-async-processing'
 ---

@@ -2,7 +2,7 @@
 title: 'CSS Flexbox 布局完全指南'
 description: '掌握弹性盒子布局的容器属性、项目属性及实战技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'css-flexbox-guide'
 ---

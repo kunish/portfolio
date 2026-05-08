@@ -2,7 +2,7 @@
 title: '前端测试最佳实践：从单元测试到端到端测试'
 description: '掌握 Jest、React Testing Library、Playwright 等测试工具和测试驱动开发'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'frontend-testing-best-practices'
 ---

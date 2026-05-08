@@ -2,7 +2,7 @@
 title: 'Browser Storage Complete Guide: From Cookie to IndexedDB'
 description: 'Master localStorage, sessionStorage, IndexedDB and Cookie usage scenarios and best practices'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'browser-storage-guide'
 ---

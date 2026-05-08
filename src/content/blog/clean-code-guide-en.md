@@ -2,7 +2,7 @@
 title: 'Clean Code: Writing Maintainable High-Quality Code'
 description: 'Master naming conventions, function design, error handling and refactoring best practices'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'clean-code-guide'
 ---

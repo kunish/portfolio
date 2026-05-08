@@ -2,7 +2,7 @@
 title: 'Signals：前端响应式编程的未来'
 description: '深入理解 Signals 响应式原语，探索为什么各大框架都在拥抱这一范式'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'signals-reactivity'
 ---

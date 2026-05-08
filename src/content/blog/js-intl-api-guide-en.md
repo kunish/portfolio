@@ -2,7 +2,7 @@
 title: 'JavaScript Intl Internationalization API Complete Guide'
 description: 'Master localized formatting for numbers, dates, currencies, lists, and more'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-intl-api-guide'
 ---

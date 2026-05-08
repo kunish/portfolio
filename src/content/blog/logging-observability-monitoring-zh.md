@@ -2,7 +2,7 @@
 title: '日志与可观测性：构建全链路监控体系'
 description: '掌握结构化日志、分布式追踪、指标监控和告警策略'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'logging-observability-monitoring'
 ---

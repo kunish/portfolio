@@ -2,7 +2,7 @@
 title: 'Getting Started with Astro'
 description: 'Learn how to build fast, content-focused websites with Astro - the web framework for content-driven sites'
 pubDate: 'Jan 20 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'getting-started-astro'
 ---

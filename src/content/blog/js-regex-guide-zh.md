@@ -2,7 +2,7 @@
 title: 'JavaScript 正则表达式完全指南'
 description: '掌握正则表达式：语法基础、模式匹配、捕获组、断言与实战应用'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-regex-guide'
 ---

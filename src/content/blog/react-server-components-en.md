@@ -2,7 +2,7 @@
 title: 'React Server Components: Redefining Full-Stack Development'
 description: 'Deeply understand how React Server Components work and master the server-first React development paradigm'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'react-server-components'
 ---

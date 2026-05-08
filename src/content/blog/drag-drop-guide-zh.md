@@ -2,7 +2,7 @@
 title: 'HTML5 拖拽功能完全指南：从原生 API 到实战应用'
 description: '掌握 Drag and Drop API、文件上传、列表排序和跨窗口拖拽'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'drag-drop-guide'
 ---

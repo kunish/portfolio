@@ -2,7 +2,7 @@
 title: 'Islands Architecture: A New Paradigm for Modern Web Development'
 description: 'Explore how Islands Architecture is transforming frontend development, achieving the perfect balance between performance and interactivity'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'islands-architecture'
 ---

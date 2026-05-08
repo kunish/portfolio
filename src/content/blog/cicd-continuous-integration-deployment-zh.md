@@ -2,7 +2,7 @@
 title: 'CI/CD 持续集成与持续部署：自动化交付流水线'
 description: '掌握 GitHub Actions、GitLab CI、自动化测试、部署策略和发布管理'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'cicd-continuous-integration-deployment'
 ---

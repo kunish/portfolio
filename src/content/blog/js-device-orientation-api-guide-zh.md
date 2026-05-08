@@ -2,7 +2,7 @@
 title: 'JavaScript Device Orientation API 完全指南'
 description: '掌握设备方向检测：陀螺仪数据获取、3D交互、VR/AR应用与体感游戏开发'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-device-orientation-api-guide'
 ---

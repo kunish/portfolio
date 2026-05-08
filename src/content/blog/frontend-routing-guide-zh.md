@@ -2,7 +2,7 @@
 title: '前端路由完全指南：从原理到最佳实践'
 description: '掌握 SPA 路由原理、React Router、动态路由和路由守卫实现'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'frontend-routing-guide'
 ---

@@ -2,7 +2,7 @@
 title: 'Error Handling Best Practices: Building Robust Applications'
 description: 'Master JavaScript/TypeScript error handling, async errors, global handling and UX optimization'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'error-handling-guide'
 ---

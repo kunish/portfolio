@@ -2,7 +2,7 @@
 title: 'JavaScript Vibration API 完全指南'
 description: '掌握设备振动控制：触觉反馈、游戏体验、通知提醒与交互增强开发'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-vibration-api-guide'
 ---

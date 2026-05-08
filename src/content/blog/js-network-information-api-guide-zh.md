@@ -2,7 +2,7 @@
 title: 'JavaScript Network Information API 完全指南'
 description: '掌握网络状态检测：连接类型识别、带宽估算、自适应加载与离线处理策略'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-network-information-api-guide'
 ---

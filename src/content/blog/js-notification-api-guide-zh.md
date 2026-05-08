@@ -2,7 +2,7 @@
 title: 'JavaScript Notification API 完全指南'
 description: '掌握浏览器通知：权限请求、消息推送、自定义选项与 Service Worker 集成'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-notification-api-guide'
 ---

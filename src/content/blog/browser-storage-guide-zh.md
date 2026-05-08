@@ -2,7 +2,7 @@
 title: '浏览器存储完全指南：从 Cookie 到 IndexedDB'
 description: '掌握 localStorage、sessionStorage、IndexedDB 和 Cookie 的使用场景与最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'browser-storage-guide'
 ---

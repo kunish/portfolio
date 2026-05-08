@@ -2,7 +2,7 @@
 title: 'JSON 完全指南：数据格式与高级处理技巧'
 description: '掌握 JSON 语法、解析方法、Schema 验证和性能优化'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'json-guide'
 ---

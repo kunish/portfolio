@@ -2,7 +2,7 @@
 title: 'Node.js CLI 工具开发：从零打造命令行应用'
 description: '掌握命令行参数解析、交互式提示、进度条和发布 npm 包'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'nodejs-cli-guide'
 ---

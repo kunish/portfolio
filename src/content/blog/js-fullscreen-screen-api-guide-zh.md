@@ -2,7 +2,7 @@
 title: 'JavaScript 全屏与屏幕 API 完全指南'
 description: '掌握 Fullscreen API、Page Visibility API、Screen API 的使用技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-fullscreen-screen-api-guide'
 ---

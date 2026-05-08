@@ -2,7 +2,7 @@
 title: 'React 状态管理完全指南：从 Redux 到 Zustand'
 description: '深入理解现代前端状态管理方案，掌握 Redux Toolkit、Zustand、Jotai、React Query 等工具的最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'react-state-management-guide'
 ---

@@ -2,14 +2,11 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE, SITE_KEYWORDS, PERSONAL_INFO } from '../consts';
+import { SITE_TITLE, SITE_KEYWORDS, PERSONAL_INFO, FALLBACK_OG_IMAGE } from '../consts';
 
 interface Props {
 	title: string;
 	description: string;
-	image?: ImageMetadata;
 	ogImage?: string; // 动态生成的 OG 图片 URL
 	article?: boolean;
 	publishedTime?: Date;
@@ -17,19 +14,17 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image, ogImage, article = false, publishedTime } = Astro.props;
-
-// 优先使用动态 OG 图片，其次使用文章封面图，最后使用默认图片
-const resolvedImage = image || FallbackImage;
+const { title, description, ogImage, article = false, publishedTime } = Astro.props;
 
 // 开发模式下使用当前请求的 origin，生产环境使用配置的 site
 const baseUrl = import.meta.env.DEV
 	? new URL(Astro.url).origin
 	: Astro.site?.toString() || new URL(Astro.url).origin;
 
+// ogImage 可能是相对路径（动态生成的 /og/[slug].png）或外部 URL
 const ogImageUrl = ogImage
-	? new URL(ogImage, baseUrl).toString()
-	: new URL(resolvedImage.src, baseUrl).toString();
+	? (ogImage.startsWith('http') ? ogImage : new URL(ogImage, baseUrl).toString())
+	: FALLBACK_OG_IMAGE;
 
 const fullTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 ---

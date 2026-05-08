@@ -2,7 +2,7 @@
 title: 'JavaScript Screen Wake Lock API Complete Guide'
 description: 'Master screen wake lock: prevent screen sleep, reading mode, video playback, and navigation applications'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-screen-wake-lock-api-guide'
 ---

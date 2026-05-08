@@ -2,7 +2,7 @@
 title: 'JavaScript 解构与展开运算符详解'
 description: '掌握数组解构、对象解构、剩余参数、展开运算符的各种用法'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-destructuring-spread'
 ---

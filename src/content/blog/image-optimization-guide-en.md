@@ -2,7 +2,7 @@
 title: 'Web Image Optimization: From Format Selection to Automation'
 description: 'Master image formats, responsive images, lazy loading, CDN delivery and automation tools'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'image-optimization-guide'
 ---

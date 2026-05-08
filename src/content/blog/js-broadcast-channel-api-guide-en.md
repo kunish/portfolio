@@ -2,7 +2,7 @@
 title: 'JavaScript Broadcast Channel API Complete Guide'
 description: 'Master cross-tab communication: message broadcasting, state synchronization, multi-window collaboration, and real-time data sharing'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-broadcast-channel-api-guide'
 ---

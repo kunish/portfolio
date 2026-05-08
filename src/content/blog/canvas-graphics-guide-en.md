@@ -2,7 +2,7 @@
 title: 'Canvas Graphics Programming: From Basics to Game Development'
 description: 'Master Canvas 2D API, animation rendering, performance optimization and simple game development'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'canvas-graphics-guide'
 ---

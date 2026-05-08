@@ -2,7 +2,7 @@
 title: '设计模式实战：构建可维护的代码架构'
 description: '掌握创建型、结构型、行为型设计模式及其在现代开发中的应用'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'design-patterns-guide'
 ---

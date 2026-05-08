@@ -2,7 +2,7 @@
 title: 'JavaScript 字符串方法完全指南'
 description: '掌握字符串查找、截取、转换、格式化等常用方法及模板字符串技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-string-methods'
 ---

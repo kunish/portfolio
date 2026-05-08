@@ -2,7 +2,7 @@
 title: 'Microservices Architecture Design and Practices: From Monolith to Distributed'
 description: 'Master microservices decomposition strategies, service communication, data consistency and operational governance'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'microservices-architecture-design'
 ---

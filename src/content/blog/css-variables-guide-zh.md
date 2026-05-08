@@ -2,7 +2,7 @@
 title: 'CSS 变量（自定义属性）完全指南'
 description: '掌握 CSS 变量的声明、使用、作用域、动态修改等核心技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'css-variables-guide'
 ---

@@ -2,7 +2,7 @@
 title: 'View Transitions API：原生页面过渡动画的新时代'
 description: '探索浏览器原生的 View Transitions API，告别复杂的动画库，实现丝滑的页面切换效果'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'view-transitions-api'
 ---

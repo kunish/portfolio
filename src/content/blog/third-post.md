@@ -2,7 +2,7 @@
 title: '第三篇文章'
 description: '深入理解 JavaScript 异步编程'
 pubDate: 'Jul 22 2022'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 ---
 

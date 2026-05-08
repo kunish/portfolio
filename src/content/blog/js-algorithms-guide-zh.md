@@ -2,7 +2,7 @@
 title: 'JavaScript 数据结构与算法：前端开发者必备知识'
 description: '掌握数组、链表、树、图等数据结构及常用算法的 JavaScript 实现'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-algorithms-guide'
 ---

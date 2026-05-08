@@ -2,7 +2,7 @@
 title: 'Secure Programming Practices: Comprehensive Protection from Code to Architecture'
 description: 'Master OWASP Top 10 defense, input validation, authentication, encryption, and security architecture design'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'secure-programming-practices'
 ---

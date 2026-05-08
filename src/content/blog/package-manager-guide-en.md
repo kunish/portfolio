@@ -2,7 +2,7 @@
 title: 'JavaScript Package Managers: npm, pnpm, Yarn Deep Comparison'
 description: 'Master features, internals and best practices of modern package managers'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'package-manager-guide'
 ---

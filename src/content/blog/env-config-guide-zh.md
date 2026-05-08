@@ -2,7 +2,7 @@
 title: '环境变量与配置管理：构建可维护的应用'
 description: '掌握环境变量、配置文件、secrets 管理和多环境部署最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'env-config-guide'
 ---

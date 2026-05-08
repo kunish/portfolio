@@ -2,7 +2,7 @@
 title: '软件测试策略：从单元测试到端到端测试的完整体系'
 description: '掌握测试金字塔、单元测试、集成测试、E2E 测试和 TDD 实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'software-testing-strategies'
 ---

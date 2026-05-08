@@ -2,7 +2,7 @@
 title: 'GitHub Actions 完全指南：自动化 CI/CD 流水线'
 description: '掌握 GitHub Actions 核心概念，构建高效的持续集成和持续部署工作流'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'github-actions-cicd-guide'
 ---

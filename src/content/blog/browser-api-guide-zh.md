@@ -2,7 +2,7 @@
 title: '浏览器 API 实战：现代 Web 开发必备技能'
 description: '掌握 Storage、Intersection Observer、Web Workers、Geolocation 等核心浏览器 API'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'browser-api-guide'
 ---

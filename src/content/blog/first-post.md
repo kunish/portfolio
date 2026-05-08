@@ -2,7 +2,7 @@
 title: '第一篇文章'
 description: '欢迎来到我的技术博客，这是第一篇示例文章'
 pubDate: 'Jul 08 2022'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'first-post'
 ---

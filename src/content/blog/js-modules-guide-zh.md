@@ -2,7 +2,7 @@
 title: 'JavaScript 模块系统完全指南：从 CommonJS 到 ESM'
 description: '深入理解 JavaScript 模块化：ESM、CommonJS、动态导入和模块打包'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-modules-guide'
 ---

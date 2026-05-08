@@ -2,7 +2,7 @@
 title: '表单验证最佳实践：构建用户友好的输入体验'
 description: '掌握 HTML5 验证、JavaScript 验证、表单库和无障碍验证技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'form-validation-guide'
 ---

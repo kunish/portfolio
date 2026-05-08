@@ -2,7 +2,7 @@
 title: 'OAuth 2.0 认证：现代应用授权指南'
 description: '掌握 OAuth 2.0 流程、JWT 令牌、第三方登录和安全最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'oauth-authentication-guide'
 ---

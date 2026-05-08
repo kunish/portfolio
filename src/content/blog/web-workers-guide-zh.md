@@ -2,7 +2,7 @@
 title: 'Web Workers 完全指南：释放浏览器多线程能力'
 description: '掌握 Web Workers、Service Workers 和 Shared Workers 的使用场景与最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'web-workers-guide'
 ---

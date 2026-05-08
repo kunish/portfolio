@@ -2,7 +2,7 @@
 title: '错误处理最佳实践：构建健壮的应用程序'
 description: '掌握 JavaScript/TypeScript 错误处理、异步错误、全局错误处理和用户体验优化'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'error-handling-guide'
 ---

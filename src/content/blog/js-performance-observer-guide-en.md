@@ -2,7 +2,7 @@
 title: 'JavaScript PerformanceObserver API Complete Guide'
 description: 'Master performance monitoring: Core Web Vitals, resource loading, long task detection, and performance analysis'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-performance-observer-guide'
 ---

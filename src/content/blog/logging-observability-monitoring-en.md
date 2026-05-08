@@ -2,7 +2,7 @@
 title: 'Logging and Observability: Building Full-Stack Monitoring Systems'
 description: 'Master structured logging, distributed tracing, metrics monitoring and alerting strategies'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'logging-observability-monitoring'
 ---

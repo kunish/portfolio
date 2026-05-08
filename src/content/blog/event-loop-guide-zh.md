@@ -2,7 +2,7 @@
 title: 'JavaScript 事件循环详解：理解异步执行机制'
 description: '深入理解调用栈、任务队列、微任务和宏任务的执行顺序'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'event-loop-guide'
 ---

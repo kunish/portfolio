@@ -2,7 +2,7 @@
 title: 'Code Review Best Practices: Improving Code Quality and Team Collaboration'
 description: 'Master code review techniques, PR standards, automation tools and constructive feedback methods'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'code-review-guide'
 ---

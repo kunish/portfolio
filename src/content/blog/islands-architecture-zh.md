@@ -2,7 +2,7 @@
 title: 'Islands Architecture：现代 Web 开发的新范式'
 description: '深入探索 Islands 架构如何改变前端开发方式，实现性能与交互性的完美平衡'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'islands-architecture'
 ---

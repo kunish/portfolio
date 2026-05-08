@@ -2,7 +2,7 @@
 title: 'API 设计最佳实践：构建优雅的 RESTful 接口'
 description: '掌握 RESTful API 设计原则、版本控制、错误处理和文档规范'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'api-design-best-practices'
 ---

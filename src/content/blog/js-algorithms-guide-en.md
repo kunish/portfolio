@@ -2,7 +2,7 @@
 title: 'JavaScript Data Structures and Algorithms: Essential Knowledge for Frontend Developers'
 description: 'Master arrays, linked lists, trees, graphs and common algorithm implementations in JavaScript'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-algorithms-guide'
 ---

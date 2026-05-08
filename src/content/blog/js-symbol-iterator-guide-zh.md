@@ -2,7 +2,7 @@
 title: 'JavaScript Symbol 与迭代器完全指南'
 description: '掌握 Symbol 类型、内置符号、迭代器协议、生成器函数等核心概念'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-symbol-iterator-guide'
 ---

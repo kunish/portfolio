@@ -2,7 +2,7 @@
 title: 'Web 动画技术：从 CSS 到 JavaScript 动画库'
 description: '掌握 CSS 动画、Web Animations API、Framer Motion 和性能优化技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'web-animation-guide'
 ---

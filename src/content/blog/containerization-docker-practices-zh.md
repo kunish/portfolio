@@ -2,7 +2,7 @@
 title: '容器化与 Docker 实践：从开发到生产的完整指南'
 description: '掌握 Docker 基础、镜像优化、多阶段构建、Docker Compose 和容器编排'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'containerization-docker-practices'
 ---

@@ -2,7 +2,7 @@
 title: 'JavaScript 对象方法完全指南'
 description: '掌握 Object 静态方法、属性操作、对象遍历及实用技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-object-methods-guide'
 ---

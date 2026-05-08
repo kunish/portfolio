@@ -2,7 +2,7 @@
 title: 'JavaScript Intl 国际化 API 完全指南'
 description: '掌握数字、日期、货币、列表等的本地化格式化技术'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-5.jpg'
+heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-intl-api-guide'
 ---

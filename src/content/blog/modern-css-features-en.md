@@ -2,7 +2,7 @@
 title: 'Modern CSS Features: 2025 Must-Know Guide'
 description: 'Explore modern CSS features like :has(), Cascade Layers, and Subgrid to boost your styling productivity'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'modern-css-features'
 ---

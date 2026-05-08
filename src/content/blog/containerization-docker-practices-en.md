@@ -2,7 +2,7 @@
 title: 'Containerization and Docker Practices: Complete Guide from Development to Production'
 description: 'Master Docker basics, image optimization, multi-stage builds, Docker Compose and container orchestration'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'containerization-docker-practices'
 ---

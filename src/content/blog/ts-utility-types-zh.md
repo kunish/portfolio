@@ -2,7 +2,7 @@
 title: 'TypeScript 工具类型完全指南：从内置到自定义'
 description: '掌握 Partial、Pick、Record 等内置工具类型及自定义高级类型'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'ts-utility-types'
 ---

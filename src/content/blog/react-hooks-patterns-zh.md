@@ -2,7 +2,7 @@
 title: 'React Hooks 进阶指南：自定义 Hooks 与最佳实践'
 description: '深入理解 useState、useEffect、useCallback 等常用 Hooks 及自定义 Hooks 模式'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'react-hooks-patterns'
 ---

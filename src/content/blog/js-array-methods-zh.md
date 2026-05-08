@@ -2,7 +2,7 @@
 title: 'JavaScript 数组方法完全指南'
 description: '掌握数组遍历、转换、过滤、查找、排序等常用方法及最佳实践'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-array-methods'
 ---

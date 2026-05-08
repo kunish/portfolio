@@ -2,7 +2,7 @@
 title: 'JavaScript 数字与 Math 对象完全指南'
 description: '掌握数字类型、精度处理、Math 方法、格式化等核心技巧'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'js-number-math-guide'
 ---

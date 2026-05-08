@@ -2,7 +2,7 @@
 title: 'GraphQL 完全指南：构建灵活高效的 API'
 description: '掌握 GraphQL 核心概念与实战技巧，使用 Apollo、Schema 设计、性能优化构建现代 API'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'graphql-api-guide'
 ---

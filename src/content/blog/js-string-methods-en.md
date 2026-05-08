@@ -2,7 +2,7 @@
 title: 'JavaScript String Methods Complete Guide'
 description: 'Master string searching, slicing, transformation, formatting and template literal techniques'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'js-string-methods'
 ---

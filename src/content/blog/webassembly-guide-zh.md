@@ -2,7 +2,7 @@
 title: 'WebAssembly 入门指南：让浏览器运行高性能代码'
 description: '深入理解 WebAssembly 的工作原理，学会用 Rust、C++ 等语言编写高性能 Web 应用'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'webassembly-guide'
 ---

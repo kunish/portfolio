@@ -2,7 +2,7 @@
 title: 'Docker 容器化实战指南：从开发到部署'
 description: '全面掌握 Docker 核心概念和实践技巧，构建可移植、可扩展的应用部署方案'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'docker-containerization-guide'
 ---

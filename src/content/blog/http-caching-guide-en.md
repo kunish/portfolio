@@ -2,7 +2,7 @@
 title: 'HTTP Caching Strategies: Boosting Web Application Performance'
 description: 'Master browser caching, CDN caching, and Service Worker caching best practices'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'en'
 translationKey: 'http-caching-guide'
 ---

@@ -2,7 +2,7 @@
 title: '正则表达式完全指南：从基础到实战'
 description: '掌握正则语法、常用模式、性能优化和实际应用场景'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'regex-guide'
 ---

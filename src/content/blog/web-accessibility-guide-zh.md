@@ -2,7 +2,7 @@
 title: 'Web 可访问性实战指南：让每个人都能使用你的网站'
 description: '掌握 Web 可访问性的核心原则和实践技巧，构建对所有用户友好的网站'
 pubDate: 'Jan 28 2025'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80'
 lang: 'zh'
 translationKey: 'web-accessibility-guide'
 ---
