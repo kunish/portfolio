@@ -1,345 +1,733 @@
-/* Google Fonts - must be first */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* ═══════════════════════════════════════════════════════════════════════════
+   shikun.dev — Terminal Workshop
+   A dark phosphor-CRT aesthetic for a frontend engineer's portfolio.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Geist+Mono:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400;1,9..144,500&display=swap');
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Swiss Design Color Palette */
-  --color-cream: #f5f1eb;
-  --color-cream-dark: #e8e2d9;
-  --color-accent: #e63312;
-  --color-accent-hover: #cc2a0e;
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #666666;
-  --color-text-muted: #999999;
-  --color-black: #000000;
-  --color-white: #ffffff;
+  /* ── Phosphor palette ──────────────────────────────────────────────────── */
+  --color-void:     #07090a;   /* deepest background */
+  --color-shell:    #0a0e0d;   /* page background */
+  --color-pane:     #0f1413;   /* panel background */
+  --color-rule:     #1a1f1d;   /* hairline rule */
+  --color-rule-hi:  #2a3230;   /* emphasized rule */
 
-  /* Typography */
-  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-bone:     #e6e1cf;   /* primary text — bone white, not pure */
+  --color-ash:      #a6a195;   /* secondary text */
+  --color-dim:      #6b6e66;   /* tertiary / muted */
+  --color-faint:    #3a3d38;   /* placeholder / disabled */
 
-  /* Spacing Scale */
-  --spacing-section: 8rem;
-  --spacing-block: 4rem;
+  --color-phosphor: #7ee787;   /* interactive accent — soft phosphor */
+  --color-phosphor-hi: #b6f0a3; /* hover state */
+  --color-amber:    #f4c171;   /* warning / dates / numbers */
+  --color-rose:     #ff5c7c;   /* destructive / strong CTA */
+  --color-cyan:     #79c0ff;   /* link variant */
 
-  /* Animation */
-  --transition-fast: 150ms ease;
-  --transition-base: 300ms ease;
+  /* ── Typography ────────────────────────────────────────────────────────── */
+  --font-mono:    "JetBrains Mono", "SF Mono", "Cascadia Code", ui-monospace, monospace;
+  --font-display: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font-serif:   "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* ── Motion ────────────────────────────────────────────────────────────── */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --duration-fast:  120ms;
+  --duration-base:  220ms;
+  --duration-slow:  480ms;
 }
 
-/* Base Styles */
+/* ═══════════════════════════════════════════════════════════════════════════
+   Base
+   ═══════════════════════════════════════════════════════════════════════════ */
 @layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
   html {
+    background-color: var(--color-shell);
+    color: var(--color-bone);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-cream text-text-primary font-sans antialiased;
-    font-size: 16px;
+    font-family: var(--font-mono);
+    font-size: 14px;
     line-height: 1.7;
+    font-feature-settings: "calt", "ss01", "ss02", "zero";
+    background-color: var(--color-shell);
+    color: var(--color-bone);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
   }
 
-  /* Display Typography - Swiss Style */
+  /* CRT scanline overlay — extremely subtle, fixed to viewport */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(126, 231, 135, 0.018) 3px,
+      transparent 4px
+    );
+    mix-blend-mode: screen;
+  }
+
+  /* Vignette */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-semibold tracking-tight;
-    line-height: 1.1;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--color-bone);
   }
 
-  h1 {
-    font-size: 3rem;
-  }
+  h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); }
+  h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+  h3 { font-size: clamp(1.25rem, 2.5vw, 1.625rem); }
+  h4 { font-size: 1.125rem; }
 
-  h2 {
-    font-size: 2.25rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 4.5rem;
-    }
-    h2 {
-      font-size: 3rem;
-    }
-    h3 {
-      font-size: 1.875rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    h1 {
-      font-size: 6rem;
-    }
-    h2 {
-      font-size: 3.75rem;
-    }
-  }
-
-  /* Links */
   a {
-    color: var(--color-accent);
-    transition: color 150ms ease;
+    color: var(--color-phosphor);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out-quart);
   }
+  a:hover { color: var(--color-phosphor-hi); }
 
-  a:hover {
-    color: var(--color-accent-hover);
-  }
-
-  /* Selection */
   ::selection {
-    @apply bg-accent text-white;
+    background: var(--color-phosphor);
+    color: var(--color-void);
+  }
+
+  /* Scrollbar — slim phosphor */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-shell); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-rule);
+    border: 2px solid var(--color-shell);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-rule-hi); }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 1px solid var(--color-phosphor);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-/* Component Styles */
+/* ═══════════════════════════════════════════════════════════════════════════
+   Components
+   ═══════════════════════════════════════════════════════════════════════════ */
 @layer components {
-  /* Swiss Grid Container */
-  .container-swiss {
-    @apply max-w-7xl mx-auto px-6;
+
+  /* ── Layout ─────────────────────────────────────────────────────────────── */
+  .term-shell {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px)  { .term-shell { padding-inline: 2rem; } }
+  @media (min-width: 1024px) { .term-shell { padding-inline: 3rem; } }
+
+  /* ── Prompt — used inline for $ commands ────────────────────────────────── */
+  .prompt {
+    color: var(--color-phosphor);
+    font-weight: 500;
+    user-select: none;
+  }
+  .prompt::before {
+    content: "$ ";
+    color: var(--color-phosphor);
+    margin-right: 0.1em;
+  }
+  .prompt-arrow::before { content: "› "; color: var(--color-phosphor); }
+  .prompt-hash::before  { content: "# "; color: var(--color-amber);    }
+
+  /* ── Blinking cursor ────────────────────────────────────────────────────── */
+  .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    background: var(--color-phosphor);
+    margin-left: 0.15em;
+    vertical-align: -0.12em;
+    animation: blink 1.05s steps(1) infinite;
+  }
+  .cursor-thin {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: var(--color-phosphor);
+    margin-left: 0.15em;
+    vertical-align: -0.18em;
+    animation: blink 1.05s steps(1) infinite;
+  }
+  @keyframes blink {
+    0%, 49%   { opacity: 1; }
+    50%, 100% { opacity: 0; }
   }
 
-  @media (min-width: 768px) {
-    .container-swiss {
-      @apply px-8;
-    }
+  /* ── Box-drawing frame — wraps content blocks ───────────────────────────── */
+  .ascii-frame {
+    position: relative;
+    border: 1px solid var(--color-rule-hi);
+    background: var(--color-pane);
+    padding: 1.5rem;
+  }
+  .ascii-frame::before,
+  .ascii-frame::after {
+    position: absolute;
+    color: var(--color-rule-hi);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .ascii-frame::before {
+    content: "┌─ ";
+    top: -0.55em;
+    left: 0.75rem;
+    background: var(--color-shell);
+    padding: 0 0.35rem;
+    color: var(--color-phosphor);
+  }
+  .ascii-frame[data-label]::before {
+    content: "┌─ " attr(data-label) " ─";
   }
 
-  @media (min-width: 1024px) {
-    .container-swiss {
-      @apply px-12;
-    }
+  /* Frame variant flush with shell background */
+  .ascii-frame--flush {
+    background: transparent;
   }
 
-  /* Hero Section */
-  .hero-title {
-    @apply font-display font-semibold tracking-tight;
-    font-size: 3rem;
-    line-height: 0.95;
+  /* Corner brackets — minimal alternative to a full frame */
+  .corner-mark {
+    position: relative;
+  }
+  .corner-mark::before,
+  .corner-mark::after {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--color-phosphor);
+    content: "";
+  }
+  .corner-mark::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+  .corner-mark::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+  /* ── Tag / badge / kbd ──────────────────────────────────────────────────── */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.15rem 0.55rem;
+    border: 1px solid var(--color-rule-hi);
+    color: var(--color-ash);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+  }
+  .chip--phosphor {
+    border-color: var(--color-phosphor);
+    color: var(--color-phosphor);
+  }
+  .chip--amber {
+    border-color: var(--color-amber);
+    color: var(--color-amber);
+  }
+  .chip--rose {
+    border-color: var(--color-rose);
+    color: var(--color-rose);
+  }
+  .chip--solid {
+    background: var(--color-phosphor);
+    color: var(--color-void);
+    border-color: var(--color-phosphor);
+    font-weight: 600;
   }
 
-  @media (min-width: 768px) {
-    .hero-title {
-      font-size: 4.5rem;
-    }
+  .kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.6rem;
+    height: 1.6rem;
+    padding: 0 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-bone);
+    background: var(--color-pane);
+    border: 1px solid var(--color-rule-hi);
+    border-bottom-width: 2px;
+    line-height: 1;
+    user-select: none;
+    transition: all var(--duration-fast) var(--ease-out-quart);
+  }
+  .kbd:hover, .kbd[data-active="true"] {
+    color: var(--color-phosphor);
+    border-color: var(--color-phosphor);
   }
 
-  @media (min-width: 1024px) {
-    .hero-title {
-      font-size: 5.5rem;
-    }
+  /* ── Buttons / commands ─────────────────────────────────────────────────── */
+  .term-cmd {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-bone);
+    background: var(--color-pane);
+    border: 1px solid var(--color-rule-hi);
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+    transition: all var(--duration-fast) var(--ease-out-quart);
+    position: relative;
+  }
+  .term-cmd::before {
+    content: "$";
+    color: var(--color-phosphor);
+    font-weight: 600;
+  }
+  .term-cmd:hover {
+    color: var(--color-void);
+    background: var(--color-phosphor);
+    border-color: var(--color-phosphor);
+  }
+  .term-cmd:hover::before { color: var(--color-void); }
+
+  .term-cmd--ghost {
+    background: transparent;
+    border-color: var(--color-rule-hi);
+  }
+  .term-cmd--ghost:hover {
+    color: var(--color-phosphor);
+    background: transparent;
+    border-color: var(--color-phosphor);
+  }
+  .term-cmd--ghost:hover::before { color: var(--color-phosphor); }
+
+  .term-cmd--rose::before { color: var(--color-rose); }
+  .term-cmd--rose:hover {
+    background: var(--color-rose);
+    border-color: var(--color-rose);
+    color: var(--color-void);
+  }
+  .term-cmd--rose:hover::before { color: var(--color-void); }
+
+  /* ── Status row / ls -la log row ────────────────────────────────────────── */
+  .log-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-top: 1px dashed var(--color-rule);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    transition: background var(--duration-fast) var(--ease-out-quart);
+  }
+  .log-row:hover {
+    background: rgba(126, 231, 135, 0.04);
+  }
+  .log-row__index {
+    color: var(--color-dim);
+    font-variant-numeric: tabular-nums;
+  }
+  .log-row__title {
+    color: var(--color-bone);
+    font-weight: 500;
+  }
+  .log-row:hover .log-row__title {
+    color: var(--color-phosphor);
+  }
+  .log-row__meta {
+    color: var(--color-dim);
+    font-size: 0.75rem;
+    text-align: right;
+    white-space: nowrap;
   }
 
-  @media (min-width: 1280px) {
-    .hero-title {
-      font-size: 7rem;
-    }
+  /* dotted leader */
+  .leader {
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+    color: var(--color-faint);
+    user-select: none;
+    letter-spacing: 0.05em;
   }
 
-  .hero-title .accent {
-    @apply text-accent;
+  /* ── Section title block: "## section" style ───────────────────────────── */
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .section-title__hash {
+    color: var(--color-phosphor);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .section-title__text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--color-bone);
+    letter-spacing: -0.01em;
+  }
+  .section-title__meta {
+    margin-left: auto;
+    color: var(--color-dim);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
-  /* Swiss Design Block */
-  .swiss-block {
-    @apply bg-black text-white p-6;
+  /* ── Stat block ─────────────────────────────────────────────────────────── */
+  .stat {
+    border-left: 1px solid var(--color-rule-hi);
+    padding-left: 1rem;
+  }
+  .stat__value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--color-phosphor);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat__label {
+    margin-top: 0.5rem;
+    color: var(--color-dim);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
   }
 
-  .swiss-block-accent {
-    @apply bg-accent text-white p-6;
+  /* ── Manpage row (KEY ............ value) ───────────────────────────────── */
+  .man-row {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    padding: 0.4rem 0;
+    font-size: 0.875rem;
+  }
+  .man-row__key {
+    color: var(--color-amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+  }
+  .man-row__val {
+    color: var(--color-bone);
   }
 
-  @media (min-width: 768px) {
-    .swiss-block,
-    .swiss-block-accent {
-      @apply p-8;
-    }
+  /* ── Marquee dot — status indicator ─────────────────────────────────────── */
+  .heartbeat {
+    display: inline-block;
+    width: 0.55rem;
+    height: 0.55rem;
+    background: var(--color-phosphor);
+    border-radius: 999px;
+    box-shadow: 0 0 8px var(--color-phosphor);
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.85); }
   }
 
-  /* Navigation */
-  .nav-link {
-    @apply text-text-primary font-medium text-sm uppercase tracking-widest;
-    transition: color 150ms ease;
+  /* ── Type-on reveal — used on hero ──────────────────────────────────────── */
+  .type-line {
+    opacity: 0;
+    transform: translateY(0.4rem);
+    animation: typeIn 0.55s var(--ease-out-quart) forwards;
+  }
+  @keyframes typeIn {
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .nav-link:hover {
-    @apply text-accent;
+  /* sequenced delays for boot sequence */
+  .stagger > *:nth-child(1) { animation-delay: 60ms; }
+  .stagger > *:nth-child(2) { animation-delay: 220ms; }
+  .stagger > *:nth-child(3) { animation-delay: 380ms; }
+  .stagger > *:nth-child(4) { animation-delay: 540ms; }
+  .stagger > *:nth-child(5) { animation-delay: 700ms; }
+  .stagger > *:nth-child(6) { animation-delay: 860ms; }
+  .stagger > *:nth-child(7) { animation-delay: 1020ms; }
+  .stagger > *:nth-child(8) { animation-delay: 1180ms; }
+
+  /* ── Hairline rule with label ──────────────────────────────────────────── */
+  .rule-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-dim);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .rule-label::before,
+  .rule-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--color-rule);
   }
 
-  .nav-link.active {
-    @apply text-accent;
+  /* ── Link with underline reveal ─────────────────────────────────────────── */
+  .link-reveal {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--duration-base) var(--ease-out-quart);
+  }
+  .link-reveal:hover {
+    background-size: 100% 1px;
   }
 
-  /* Blog Card */
-  .blog-card {
-    display: block;
-  }
-
-  .blog-card-title {
-    @apply font-display font-semibold;
-    font-size: 1.25rem;
-    transition: color 150ms ease;
-  }
-
-  @media (min-width: 768px) {
-    .blog-card-title {
-      font-size: 1.5rem;
-    }
-  }
-
-  .blog-card:hover .blog-card-title {
-    @apply text-accent;
-  }
-
-  /* Button Styles */
-  .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 font-medium text-sm uppercase tracking-widest;
-    transition: all 150ms ease;
-  }
-
-  .btn-primary {
-    @apply bg-black text-white;
-  }
-
-  .btn-primary:hover {
-    @apply bg-accent;
-  }
-
-  .btn-outline {
-    @apply border-2 border-black text-black;
-  }
-
-  .btn-outline:hover {
-    @apply bg-black text-white;
-  }
-
-  .btn-accent {
-    @apply bg-accent text-white;
-  }
-
-  .btn-accent:hover {
-    @apply bg-accent-hover;
-  }
-
-  /* Tag/Badge */
-  .tag {
-    @apply inline-block px-3 py-1 text-xs uppercase tracking-wider font-medium bg-cream-dark text-text-secondary;
-  }
-
-  .tag-accent {
-    @apply bg-accent text-white;
-  }
-
-  /* Numbered List - Swiss Style */
-  .swiss-number {
-    @apply font-display font-bold text-accent leading-none;
-    font-size: 3.75rem;
-  }
-
-  @media (min-width: 768px) {
-    .swiss-number {
-      font-size: 6rem;
-    }
-  }
-
-  /* Divider */
-  .divider {
-    border-top: 1px solid rgba(26, 26, 26, 0.1);
-  }
-
-  /* Grid Pattern Background */
-  .grid-pattern {
-    background-image:
-      linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-    background-size: 20px 20px;
+  /* ── Italic serif accent — for pull quotes ──────────────────────────────── */
+  .serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
   }
 }
 
-/* Prose Customization for Blog */
-.prose-swiss {
-  @apply prose prose-lg max-w-none;
+/* ═══════════════════════════════════════════════════════════════════════════
+   Prose — terminal log reading style
+   ═══════════════════════════════════════════════════════════════════════════ */
+.prose-terminal {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--color-bone);
+  max-width: none;
 }
 
-.prose-swiss :where(h1, h2, h3, h4, h5, h6) {
-  @apply font-display font-semibold tracking-tight;
+.prose-terminal :where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  color: var(--color-bone);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.prose-swiss :where(h1) {
-  font-size: 2.25rem;
+.prose-terminal :where(h1)::before,
+.prose-terminal :where(h2)::before,
+.prose-terminal :where(h3)::before,
+.prose-terminal :where(h4)::before {
+  color: var(--color-phosphor);
+  margin-right: 0.5em;
+  font-weight: 600;
 }
 
-.prose-swiss :where(h2) {
-  font-size: 1.875rem;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
+.prose-terminal :where(h1)::before { content: "#"; }
+.prose-terminal :where(h2)::before { content: "##"; }
+.prose-terminal :where(h3)::before { content: "###"; }
+.prose-terminal :where(h4)::before { content: "####"; }
+
+.prose-terminal :where(h1) { font-size: 2rem; }
+.prose-terminal :where(h2) { font-size: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--color-rule); }
+.prose-terminal :where(h3) { font-size: 1.2rem; }
+.prose-terminal :where(h4) { font-size: 1.05rem; }
+
+.prose-terminal :where(p) { margin: 1rem 0; }
+
+.prose-terminal :where(a) {
+  color: var(--color-phosphor);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--color-phosphor);
+  padding-bottom: 1px;
+  transition: all var(--duration-fast) var(--ease-out-quart);
+}
+.prose-terminal :where(a):hover {
+  background: var(--color-phosphor);
+  color: var(--color-void);
+  border-bottom-color: var(--color-phosphor);
 }
 
-.prose-swiss :where(h3) {
-  font-size: 1.5rem;
+.prose-terminal :where(strong) {
+  color: var(--color-phosphor-hi);
+  font-weight: 600;
 }
 
-@media (min-width: 768px) {
-  .prose-swiss :where(h1) {
-    font-size: 3rem;
-  }
-  .prose-swiss :where(h2) {
-    font-size: 2.25rem;
-  }
-  .prose-swiss :where(h3) {
-    font-size: 1.875rem;
-  }
+.prose-terminal :where(em) {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-amber);
 }
 
-.prose-swiss :where(p) {
-  @apply text-text-primary leading-relaxed;
+.prose-terminal :where(blockquote) {
+  position: relative;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  border-left: 2px solid var(--color-phosphor);
+  color: var(--color-ash);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
 }
 
-.prose-swiss :where(a) {
-  @apply text-accent no-underline;
+.prose-terminal :where(code):not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.12em 0.42em;
+  color: var(--color-phosphor);
+  background: rgba(126, 231, 135, 0.08);
+  border: 1px solid var(--color-rule-hi);
 }
 
-.prose-swiss :where(a:hover) {
-  text-decoration: underline;
+.prose-terminal :where(pre) {
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  background: var(--color-void) !important;
+  border: 1px solid var(--color-rule-hi);
+  position: relative;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+.prose-terminal :where(pre)::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 0.55rem;
+  left: 0.75rem;
+  color: var(--color-rule-hi);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+}
+.prose-terminal :where(pre) {
+  padding-top: 2.25rem;
+}
+.prose-terminal :where(pre code) {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
 }
 
-.prose-swiss :where(strong) {
-  @apply font-semibold text-text-primary;
+.prose-terminal :where(.astro-code) {
+  background: var(--color-void) !important;
 }
 
-.prose-swiss :where(blockquote) {
-  @apply border-l-4 border-accent pl-6 italic text-text-secondary;
+.prose-terminal :where(ul, ol) {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
 }
 
-.prose-swiss :where(code):not(pre code) {
-  @apply bg-cream-dark px-2 py-0.5 rounded font-mono text-sm text-text-primary;
+.prose-terminal :where(ul) {
+  list-style: none;
+  padding-left: 0;
+}
+.prose-terminal :where(ul > li) {
+  position: relative;
+  padding-left: 1.5rem;
+  margin: 0.35rem 0;
+}
+.prose-terminal :where(ul > li)::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--color-phosphor);
 }
 
-.prose-swiss :where(pre) {
-  @apply p-6 overflow-x-auto;
-  border-radius: 0;
+.prose-terminal :where(ol) {
+  list-style: none;
+  counter-reset: ol-counter;
+  padding-left: 0;
+}
+.prose-terminal :where(ol > li) {
+  counter-increment: ol-counter;
+  position: relative;
+  padding-left: 2.5rem;
+  margin: 0.4rem 0;
+}
+.prose-terminal :where(ol > li)::before {
+  content: counter(ol-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  color: var(--color-phosphor);
+  font-variant-numeric: tabular-nums;
 }
 
-.prose-swiss :where(pre code) {
-  @apply bg-transparent p-0 text-sm;
-  border-radius: 0;
+.prose-terminal :where(hr) {
+  border: 0;
+  text-align: center;
+  margin: 2rem 0;
+  color: var(--color-rule-hi);
+}
+.prose-terminal :where(hr)::before {
+  content: "·  ·  ·";
+  letter-spacing: 0.5em;
+  color: var(--color-rule-hi);
 }
 
-/* Ensure Shiki code blocks are visible */
-.prose-swiss :where(.astro-code) {
-  @apply p-6 overflow-x-auto;
-  border-radius: 0;
+.prose-terminal :where(img) {
+  border: 1px solid var(--color-rule-hi);
+  margin: 1.5rem 0;
 }
 
-.prose-swiss :where(img) {
-  border-radius: 0;
+.prose-terminal :where(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
 }
-
-.prose-swiss :where(hr) {
-  border-color: rgba(26, 26, 26, 0.1);
+.prose-terminal :where(th) {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--color-rule-hi);
+  color: var(--color-amber);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+.prose-terminal :where(td) {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px dashed var(--color-rule);
 }

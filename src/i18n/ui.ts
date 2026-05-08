@@ -82,6 +82,22 @@ export const ui = {
     'common.error': '出错了',
     'common.back': '返回',
     'common.close': '关闭',
+
+    // Terminal flavor
+    'term.whoami': '一个写代码的人，住在终端里。',
+    'term.tagline': '在像素与字符之间打磨 web。',
+    'term.recent': '近期日志',
+    'term.allPosts': '全部文章',
+    'term.featured': '置顶',
+    'term.skills': '技术栈',
+    'term.bootMessage': '系统已就绪，输入 help 查看可用指令。',
+    'term.readingTime': '阅读约',
+    'term.minutes': '分钟',
+    'term.story': '关于这个人',
+    'term.stack': '所用工具',
+    'term.signal': '联系信号',
+    'term.return': '回到上一级',
+    'term.empty': '此目录为空。',
   },
   en: {
     // Navigation
@@ -157,5 +173,21 @@ export const ui = {
     'common.error': 'Something went wrong',
     'common.back': 'Back',
     'common.close': 'Close',
+
+    // Terminal flavor
+    'term.whoami': 'a person who writes code, living in a terminal.',
+    'term.tagline': 'crafting the web between pixels and characters.',
+    'term.recent': 'recent log',
+    'term.allPosts': 'all entries',
+    'term.featured': 'featured',
+    'term.skills': 'tooling',
+    'term.bootMessage': 'system ready. type help to list commands.',
+    'term.readingTime': 'reads in',
+    'term.minutes': 'min',
+    'term.story': 'about this person',
+    'term.stack': 'instruments',
+    'term.signal': 'signal',
+    'term.return': 'cd ..',
+    'term.empty': 'directory is empty.',
   },
 } as const;

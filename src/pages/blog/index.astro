@@ -10,14 +10,23 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-// Filter posts by current language
 const allPosts = await getCollection('blog');
 const posts = allPosts
   .filter((post) => (post.data.lang || 'zh') === lang)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// 生成 OG 图片路径
-const getOgImagePath = (postId: string) => `/og/${postId}.png`;
+const featured = posts[0];
+const rest = posts.slice(1);
+
+const yyyy_mm = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+
+const groups = rest.reduce<Record<string, typeof rest>>((acc, post) => {
+  const k = yyyy_mm(post.data.pubDate);
+  (acc[k] = acc[k] || []).push(post);
+  return acc;
+}, {});
+
+const orderedGroupKeys = Object.keys(groups).sort().reverse();
 ---
 
 <!doctype html>
@@ -28,99 +37,317 @@ const getOgImagePath = (postId: string) => `/og/${postId}.png`;
   <body>
     <Header />
 
-    <main class="pt-20">
-      <!-- Hero Section -->
-      <section class="py-24 md:py-32">
-        <div class="container-swiss">
-          <div class="max-w-3xl">
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tight leading-[0.95]">
-              {lang === 'zh' ? '技术' : 'Tech '}<span class="text-accent">{t('blog.title')}</span>
-            </h1>
-            <p class="mt-8 text-xl text-text-secondary leading-relaxed">
-              {t('blog.description')}
+    <main class="blog-main">
+      <div class="term-shell">
+        <!-- breadcrumb -->
+        <div class="rule-label blog-crumb">
+          <span>~</span>
+          <span style="opacity:0.5;">/</span>
+          <span style="color: var(--color-phosphor);">posts</span>
+          <span class="blog-crumb__hint" aria-hidden="true">$ ls -la /posts | wc -l → {posts.length}</span>
+        </div>
+
+        <!-- hero -->
+        <header class="blog-hero">
+          <div class="boot">
+            <p class="boot-line"><span class="prompt">find ./posts -type f -name "*.md"</span></p>
+            <p class="boot-line boot-out">
+              {lang === 'zh'
+                ? `已找到 ${posts.length} 篇日志，按时间倒序排列。`
+                : `found ${posts.length} entries, sorted by time, newest first.`}
             </p>
           </div>
-        </div>
-      </section>
+          <h1 class="blog-title">
+            <span class="hash">##</span>
+            {lang === 'zh' ? '技术日志' : 'logs'}<span class="cursor-thin"></span>
+          </h1>
+          <p class="blog-lede serif">{t('blog.description')}</p>
+        </header>
 
-      <!-- Posts Grid -->
-      <section class="pb-24 md:pb-32">
-        <div class="container-swiss">
-          <!-- Featured Post -->
-          {posts.length > 0 && (
-            <article class="mb-16">
-              <a href={`${translatePath('/blog')}/${posts[0].id}/`} class="group block">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                  <div class="aspect-[1200/630] bg-black overflow-hidden rounded-lg">
-                    <img
-                      width={1200}
-                      height={630}
-                      src={getOgImagePath(posts[0].id)}
-                      alt={posts[0].data.title}
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="eager"
-                    />
-                  </div>
-                  <div class="lg:pl-8">
-                    <span class="tag tag-accent mb-4">{t('blog.featured')}</span>
-                    <h2 class="text-3xl md:text-4xl font-display font-semibold group-hover:text-accent transition-colors">
-                      {posts[0].data.title}
-                    </h2>
-                    <p class="mt-4 text-text-secondary text-lg line-clamp-3">
-                      {posts[0].data.description}
-                    </p>
-                    <div class="mt-6 flex items-center gap-4 text-text-muted text-sm uppercase tracking-wider">
-                      <FormattedDate date={posts[0].data.pubDate} lang={lang} />
-                    </div>
-                  </div>
+        {posts.length === 0 ? (
+          <div class="blog-empty">
+            <pre class="empty-art" aria-hidden="true">  ┌─ EMPTY ─┐
+  │ 0 files │
+  └─────────┘</pre>
+            <p>{t('term.empty')}</p>
+            {lang === 'en' && (
+              <a href="/blog" class="term-cmd term-cmd--ghost">cd ../zh/posts</a>
+            )}
+          </div>
+        ) : (
+          <>
+            <!-- featured ─────────────────────────────────────────── -->
+            {featured && (
+              <a href={`${translatePath('/blog')}/${featured.id}/`} class="featured ascii-frame" data-label="featured.md">
+                <div class="featured__top">
+                  <span class="chip chip--phosphor">{t('blog.featured')}</span>
+                  <span class="featured__date">
+                    <FormattedDate date={featured.data.pubDate} lang={lang} />
+                  </span>
+                </div>
+                <h2 class="featured__title">{featured.data.title}</h2>
+                <p class="featured__desc">{featured.data.description}</p>
+                <div class="featured__cta">
+                  <span class="prompt">cat {featured.id}.md</span>
+                  <span class="arrow">→</span>
                 </div>
               </a>
-            </article>
-          )}
+            )}
 
-          <!-- Divider -->
-          <div class="divider mb-16"></div>
+            <!-- divider rule label -->
+            <div class="rule-label blog-divider">archive · {rest.length} {lang === 'zh' ? '篇' : 'entries'}</div>
 
-          <!-- Posts List -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {posts.slice(1).map((post) => (
-              <article class="blog-card">
-                <a href={`${translatePath('/blog')}/${post.id}/`} class="block">
-                  <div class="aspect-[1200/630] bg-black mb-6 overflow-hidden rounded-lg">
-                    <img
-                      width={600}
-                      height={315}
-                      src={getOgImagePath(post.id)}
-                      alt={post.data.title}
-                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
+            <!-- archive grouped by month ───────────────────────── -->
+            <div class="archive">
+              {orderedGroupKeys.map((key) => (
+                <section class="month-group">
+                  <div class="month-group__head">
+                    <span class="month-group__year">{key.split('-')[0]}</span>
+                    <span class="month-group__sep">/</span>
+                    <span class="month-group__month">{key.split('-')[1]}</span>
+                    <span class="month-group__count">— {groups[key].length}</span>
+                    <span class="month-group__rule"></span>
                   </div>
-                  <div class="text-text-muted text-sm uppercase tracking-wider mb-2">
-                    <FormattedDate date={post.data.pubDate} lang={lang} />
-                  </div>
-                  <h3 class="blog-card-title">{post.data.title}</h3>
-                  <p class="mt-3 text-text-secondary line-clamp-2">{post.data.description}</p>
-                </a>
-              </article>
-            ))}
-          </div>
-
-          {posts.length === 0 && (
-            <div class="text-center py-24">
-              <span class="font-display text-8xl font-bold text-accent opacity-20">404</span>
-              <p class="mt-4 text-text-secondary text-lg">
-                {lang === 'zh' ? '暂无博客文章' : 'No blog posts available'}
-              </p>
-              {lang === 'en' && (
-                <a href="/blog" class="btn btn-outline mt-6">View Chinese Posts</a>
-              )}
+                  <ol class="month-group__list">
+                    {groups[key].map((post, i) => (
+                      <li>
+                        <a href={`${translatePath('/blog')}/${post.id}/`} class="entry">
+                          <span class="entry__index">{String(i + 1).padStart(2, '0')}</span>
+                          <span class="entry__body">
+                            <span class="entry__title">{post.data.title}</span>
+                            <span class="entry__leader" aria-hidden="true">·············································································································</span>
+                            <span class="entry__desc">{post.data.description}</span>
+                          </span>
+                          <span class="entry__date">
+                            <FormattedDate date={post.data.pubDate} lang={lang} />
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ))}
             </div>
-          )}
-        </div>
-      </section>
+          </>
+        )}
+      </div>
     </main>
 
     <Footer />
+
+    <style>
+      .blog-main { padding: 3rem 0 5rem; }
+      @media (min-width: 768px) { .blog-main { padding: 4rem 0 6rem; } }
+
+      .blog-crumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+      .blog-crumb__hint {
+        margin-left: auto;
+        color: var(--color-faint);
+        font-size: 0.65rem;
+      }
+
+      .blog-hero { margin-bottom: 3rem; max-width: 50rem; }
+      .blog-hero .boot { font-size: 0.8rem; color: var(--color-ash); margin-bottom: 1.5rem; }
+      .blog-hero .boot-line { margin: 0; }
+      .blog-hero .boot-out { color: var(--color-bone); padding-left: 0.85rem; }
+      .blog-hero .boot-out::before {
+        content: "›"; color: var(--color-phosphor);
+        margin-right: 0.45rem; margin-left: -0.85rem;
+      }
+
+      .blog-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 7vw, 4.5rem);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin: 0;
+        display: flex;
+        gap: 0.6rem;
+        align-items: baseline;
+      }
+      .blog-title .hash { color: var(--color-phosphor); }
+
+      .blog-lede {
+        margin: 1.25rem 0 0;
+        color: var(--color-amber);
+        font-size: 1.15rem;
+        line-height: 1.55;
+      }
+
+      /* ── empty ──────────────────────────────────────── */
+      .blog-empty {
+        text-align: center;
+        padding: 4rem 0;
+        color: var(--color-dim);
+      }
+      .empty-art {
+        font-family: var(--font-mono);
+        color: var(--color-faint);
+        margin: 0 0 1rem;
+        font-size: 0.85rem;
+      }
+
+      /* ── featured ───────────────────────────────────── */
+      .featured {
+        display: block;
+        padding: 2rem 1.5rem;
+        margin-bottom: 3rem;
+        text-decoration: none;
+        color: inherit;
+        background: var(--color-pane);
+        transition: all var(--duration-base) var(--ease-out-quart);
+      }
+      .featured:hover {
+        background: color-mix(in oklab, var(--color-pane) 80%, var(--color-phosphor) 6%);
+      }
+      @media (min-width: 768px) { .featured { padding: 2.5rem 2.5rem 2rem; } }
+
+      .featured__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .featured__date {
+        color: var(--color-amber);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .featured__title {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+        line-height: 1.15;
+        margin: 0 0 0.85rem;
+        color: var(--color-bone);
+      }
+      .featured:hover .featured__title { color: var(--color-phosphor); }
+      .featured__desc {
+        color: var(--color-ash);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 0 0 1.25rem;
+        max-width: 50rem;
+      }
+      .featured__cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--color-phosphor);
+      }
+      .featured__cta .arrow { transition: transform var(--duration-fast) var(--ease-out-quart); }
+      .featured:hover .featured__cta .arrow { transform: translateX(0.3rem); }
+
+      /* ── divider ────────────────────────────────────── */
+      .blog-divider { margin: 3rem 0 1.5rem; }
+
+      /* ── archive ────────────────────────────────────── */
+      .archive { display: flex; flex-direction: column; gap: 2.5rem; }
+
+      .month-group__head {
+        display: flex;
+        align-items: baseline;
+        gap: 0.4rem;
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+        color: var(--color-amber);
+      }
+      .month-group__year { color: var(--color-bone); font-weight: 600; }
+      .month-group__sep { color: var(--color-faint); }
+      .month-group__month { color: var(--color-amber); }
+      .month-group__count { color: var(--color-dim); margin-left: 0.4rem; font-size: 0.78rem; }
+      .month-group__rule {
+        flex: 1;
+        height: 1px;
+        background: var(--color-rule);
+        margin-left: 0.85rem;
+        align-self: center;
+      }
+
+      .month-group__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .entry {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: baseline;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-top: 1px dashed var(--color-rule);
+        text-decoration: none;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        color: var(--color-bone);
+        transition: background var(--duration-fast) var(--ease-out-quart);
+      }
+      .entry:last-child { border-bottom: 1px dashed var(--color-rule); }
+      .entry:hover {
+        background: rgba(126, 231, 135, 0.04);
+      }
+      .entry__index {
+        color: var(--color-faint);
+        font-variant-numeric: tabular-nums;
+        font-size: 0.8rem;
+      }
+      .entry__body {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        min-width: 0;
+        overflow: hidden;
+      }
+      .entry__title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 35%;
+      }
+      .entry:hover .entry__title { color: var(--color-phosphor); }
+      .entry__leader {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        color: var(--color-faint);
+        text-align: center;
+        letter-spacing: 0.05em;
+      }
+      .entry__desc {
+        color: var(--color-dim);
+        font-size: 0.78rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+        text-align: right;
+      }
+      .entry__date {
+        color: var(--color-amber);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+      }
+
+      @media (max-width: 720px) {
+        .entry { grid-template-columns: auto 1fr; }
+        .entry__body { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+        .entry__title, .entry__desc { max-width: 100%; white-space: normal; text-align: left; }
+        .entry__leader { display: none; }
+        .entry__date {
+          grid-column: 2;
+          font-size: 0.68rem;
+          margin-top: 0.2rem;
+        }
+      }
+    </style>
   </body>
 </html>
