@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-30T00:00:00Z",
+  "title": "Design System: The 3AM Terminal",
+  "extensions": {
+    "colorMeta": {
+      "phosphor": { "role": "primary", "displayName": "Phosphor Afterglow Green", "canonical": "#7ee787", "tonalRamp": ["#0c1a0e", "#12331a", "#1c5128", "#2d7a3d", "#46a957", "#7ee787", "#a8efad", "#d6f9d8"] },
+      "phosphor-hi": { "role": "primary", "displayName": "Phosphor Bloom", "canonical": "#b6f0a3", "tonalRamp": ["#16240f", "#234018", "#356224", "#4c8a34", "#7fc262", "#b6f0a3", "#d2f6c6", "#ecfce4"] },
+      "amber": { "role": "secondary", "displayName": "Oscilloscope Amber", "canonical": "#f4c171", "tonalRamp": ["#241a0c", "#3d2f15", "#5e4920", "#8a6c2f", "#c19347", "#f4c171", "#f8d79e", "#fcecd0"] },
+      "rose": { "role": "secondary", "displayName": "Alarm Rose Afterglow", "canonical": "#ff5c7c", "tonalRamp": ["#2a0e15", "#481622", "#6e2334", "#9c3349", "#cc4663", "#ff5c7c", "#ff93a8", "#ffcdd7"] },
+      "cyan": { "role": "tertiary", "displayName": "Link Cyan", "canonical": "#79c0ff", "tonalRamp": ["#0d1c2a", "#163148", "#23496e", "#33689c", "#4c8fcc", "#79c0ff", "#a8d8ff", "#d6ecff"] },
+      "bone": { "role": "neutral", "displayName": "Bone White", "canonical": "#e6e1cf", "tonalRamp": ["#1a1916", "#2f2d27", "#48453c", "#6c6759", "#a39d8a", "#cfc8b3", "#e6e1cf", "#f3f0e6"] },
+      "ash": { "role": "neutral", "displayName": "Ash Grey", "canonical": "#a6a195", "tonalRamp": ["#16150f", "#28261f", "#3e3b31", "#5d594c", "#84806f", "#a6a195", "#c5c1b5", "#e2e0d8"] },
+      "dim": { "role": "neutral", "displayName": "Dim Grey", "canonical": "#6b6e66", "tonalRamp": ["#101110", "#1d1f1c", "#2e302b", "#45473f", "#5a5c53", "#6b6e66", "#9a9c93", "#c9cac3"] },
+      "faint": { "role": "neutral", "displayName": "Faint Grey", "canonical": "#3a3d38", "tonalRamp": ["#0c0d0b", "#161814", "#23251f", "#2f322b", "#3a3d38", "#5a5d54", "#878a80", "#b6b8af"] },
+      "void": { "role": "neutral", "displayName": "Void", "canonical": "#07090a", "tonalRamp": ["#07090a", "#0a0e0d", "#0f1413", "#1a1f1d", "#2a3230", "#454d4a", "#6e7672", "#9aa19c"] },
+      "shell": { "role": "neutral", "displayName": "Shell", "canonical": "#0a0e0d", "tonalRamp": ["#07090a", "#0a0e0d", "#0f1413", "#1a1f1d", "#2a3230", "#454d4a", "#6e7672", "#9aa19c"] },
+      "pane": { "role": "neutral", "displayName": "Pane", "canonical": "#0f1413", "tonalRamp": ["#07090a", "#0a0e0d", "#0f1413", "#1a1f1d", "#2a3230", "#454d4a", "#6e7672", "#9aa19c"] },
+      "rule": { "role": "neutral", "displayName": "Rule Hairline", "canonical": "#1a1f1d", "tonalRamp": ["#0a0e0d", "#0f1413", "#1a1f1d", "#2a3230", "#3a443f", "#525d57", "#7b857f", "#a7afa9"] },
+      "rule-hi": { "role": "neutral", "displayName": "Rule Emphasized", "canonical": "#2a3230", "tonalRamp": ["#0a0e0d", "#0f1413", "#1a1f1d", "#2a3230", "#3a443f", "#525d57", "#7b857f", "#a7afa9"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Homepage hero headline only. Geist Mono 600, ls floor -0.04em." },
+      "headline": { "displayName": "Headline", "purpose": "Page h1." },
+      "title": { "displayName": "Title", "purpose": "Section titles and article h1." },
+      "body": { "displayName": "Body", "purpose": "All running text; prose at 0.95rem/lh1.85, column capped 50rem." },
+      "label": { "displayName": "Label", "purpose": "Uppercase field keys, captions, chips, table headers." },
+      "quote": { "displayName": "Quote", "purpose": "Fraunces italic — ledes, blockquotes, the footer motto. Rare." }
+    },
+    "shadows": [
+      { "name": "phosphor-bloom-dot", "value": "0 0 8px var(--color-phosphor)", "purpose": "Glow on living status indicators (host dot, heartbeat) only." },
+      { "name": "phosphor-bloom-text", "value": "0 0 12px rgba(126,231,135,0.3)", "purpose": "Text glow on the footer ASCII signature / hero CRT moments." }
+    ],
+    "motion": [
+      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "The system's only easing curve for all state transitions and entrances." },
+      { "name": "duration-fast", "value": "120ms", "purpose": "Hover/focus color shifts." },
+      { "name": "duration-base", "value": "220ms", "purpose": "Card border/background transitions." },
+      { "name": "duration-slow", "value": "480ms", "purpose": "Larger reveals." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Command Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled command button; inverts to solid phosphor on hover. Used for the main action.",
+      "html": "<a href=\"#\" class=\"ds-cmd\">cd posts</a>",
+      "css": ".ds-cmd { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.7rem 1.1rem; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.82rem; font-weight: 500; color: var(--color-bone, #e6e1cf); background: var(--color-pane, #0f1413); border: 1px solid var(--color-rule-hi, #2a3230); text-transform: lowercase; letter-spacing: 0.02em; text-decoration: none; transition: all 120ms cubic-bezier(0.25,1,0.5,1); } .ds-cmd::before { content: '$'; color: var(--color-phosphor, #7ee787); font-weight: 600; } .ds-cmd:hover { color: var(--color-void, #07090a); background: var(--color-phosphor, #7ee787); border-color: var(--color-phosphor, #7ee787); } .ds-cmd:hover::before { color: var(--color-void, #07090a); } .ds-cmd:focus-visible { outline: 1px solid var(--color-phosphor, #7ee787); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Command Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Transparent default-action button; text/border/glyph turn phosphor on hover.",
+      "html": "<a href=\"#\" class=\"ds-cmd-ghost\">cat about.md</a>",
+      "css": ".ds-cmd-ghost { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.7rem 1.1rem; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.82rem; font-weight: 500; color: var(--color-bone, #e6e1cf); background: transparent; border: 1px solid var(--color-rule-hi, #2a3230); text-transform: lowercase; letter-spacing: 0.02em; text-decoration: none; transition: all 120ms cubic-bezier(0.25,1,0.5,1); } .ds-cmd-ghost::before { content: '$'; color: var(--color-phosphor, #7ee787); font-weight: 600; } .ds-cmd-ghost:hover { color: var(--color-phosphor, #7ee787); border-color: var(--color-phosphor, #7ee787); } .ds-cmd-ghost:hover::before { color: var(--color-phosphor, #7ee787); }"
+    },
+    {
+      "name": "Rose Contact Button",
+      "kind": "button",
+      "refersTo": "button-rose-hover",
+      "description": "The rare strong/contact CTA; rose glyph and hover fill.",
+      "html": "<a href=\"#\" class=\"ds-cmd-rose\">say hello</a>",
+      "css": ".ds-cmd-rose { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.7rem 1.1rem; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.82rem; font-weight: 500; color: var(--color-bone, #e6e1cf); background: var(--color-pane, #0f1413); border: 1px solid var(--color-rule-hi, #2a3230); text-transform: lowercase; letter-spacing: 0.02em; text-decoration: none; transition: all 120ms cubic-bezier(0.25,1,0.5,1); } .ds-cmd-rose::before { content: '$'; color: var(--color-rose, #ff5c7c); font-weight: 600; } .ds-cmd-rose:hover { color: var(--color-void, #07090a); background: var(--color-rose, #ff5c7c); border-color: var(--color-rose, #ff5c7c); } .ds-cmd-rose:hover::before { color: var(--color-void, #07090a); }"
+    },
+    {
+      "name": "Chip / Tag",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Outlined uppercase tag; phosphor variant for emphasis. Zero radius.",
+      "html": "<span class=\"ds-chip ds-chip-phosphor\">TypeScript</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.4em; padding: 0.15rem 0.55rem; border: 1px solid var(--color-rule-hi, #2a3230); color: var(--color-ash, #a6a195); font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.6; } .ds-chip-phosphor { border-color: var(--color-phosphor, #7ee787); color: var(--color-phosphor, #7ee787); }"
+    },
+    {
+      "name": "Nav Command Link",
+      "kind": "nav",
+      "refersTo": "nav-cmd",
+      "description": "Header nav shaped as [key] label; whole link turns phosphor on hover/active, active appends a square marker.",
+      "html": "<a href=\"#\" class=\"ds-nav is-active\"><span class=\"b\">[</span><span class=\"k\">posts</span><span class=\"b\">]</span><span class=\"l\">blog</span></a>",
+      "css": ".ds-nav { display: inline-flex; align-items: baseline; gap: 0.35rem; padding: 0.35rem 0.65rem; color: var(--color-ash, #a6a195); font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.78rem; text-decoration: none; transition: color 120ms cubic-bezier(0.25,1,0.5,1); } .ds-nav .b { color: var(--color-faint, #3a3d38); } .ds-nav .k { color: var(--color-amber, #f4c171); font-weight: 500; } .ds-nav .l { text-transform: lowercase; } .ds-nav:hover, .ds-nav.is-active { color: var(--color-phosphor, #7ee787); } .ds-nav:hover .b, .ds-nav:hover .k, .ds-nav.is-active .b, .ds-nav.is-active .k { color: var(--color-phosphor, #7ee787); } .ds-nav.is-active::after { content: ''; width: 6px; height: 6px; background: var(--color-phosphor, #7ee787); margin-left: 0.2rem; align-self: center; }"
+    },
+    {
+      "name": "Keycap",
+      "kind": "custom",
+      "refersTo": "kbd",
+      "description": "Physical-feeling keycap with a 2px bottom edge; also the EN/ZH language switch.",
+      "html": "<kbd class=\"ds-kbd\">q</kbd>",
+      "css": ".ds-kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 1.6rem; height: 1.6rem; padding: 0 0.4rem; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.72rem; font-weight: 500; color: var(--color-bone, #e6e1cf); background: var(--color-pane, #0f1413); border: 1px solid var(--color-rule-hi, #2a3230); border-bottom-width: 2px; line-height: 1; transition: all 120ms cubic-bezier(0.25,1,0.5,1); } .ds-kbd:hover { color: var(--color-phosphor, #7ee787); border-color: var(--color-phosphor, #7ee787); }"
+    },
+    {
+      "name": "Stack Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Flat zero-radius panel; border shifts to phosphor and fill tints green on hover. No shadow.",
+      "html": "<article class=\"ds-card\"><header class=\"ds-card-head\"><span class=\"ds-card-num\">[00]</span><h3 class=\"ds-card-title\">frameworks</h3></header><ul class=\"ds-card-list\"><li><span class=\"ds-bullet\">&#9656;</span> React</li><li><span class=\"ds-bullet\">&#9656;</span> Astro</li></ul></article>",
+      "css": ".ds-card { padding: 1.25rem; border: 1px solid var(--color-rule, #1a1f1d); background: var(--color-pane, #0f1413); transition: all 220ms cubic-bezier(0.25,1,0.5,1); } .ds-card:hover { border-color: var(--color-phosphor, #7ee787); background: color-mix(in oklab, var(--color-pane, #0f1413) 80%, var(--color-phosphor, #7ee787) 4%); } .ds-card-head { display: flex; align-items: baseline; gap: 0.5rem; padding-bottom: 0.6rem; border-bottom: 1px dashed var(--color-rule, #1a1f1d); margin-bottom: 0.85rem; } .ds-card-num { color: var(--color-phosphor, #7ee787); font-family: var(--font-display, 'Geist Mono', monospace); font-size: 0.78rem; } .ds-card-title { font-family: var(--font-display, 'Geist Mono', monospace); font-size: 1rem; margin: 0; text-transform: lowercase; color: var(--color-bone, #e6e1cf); } .ds-card-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; font-size: 0.85rem; font-family: var(--font-mono, 'JetBrains Mono', monospace); color: var(--color-ash, #a6a195); } .ds-bullet { color: var(--color-faint, #3a3d38); }"
+    },
+    {
+      "name": "ASCII Frame",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "Signature box-drawing panel; top-left label straddles the border like a tmux pane title.",
+      "html": "<div class=\"ds-frame\" data-label=\"profile.json\"><div class=\"ds-frame-row\"><span class=\"ds-frame-key\">user</span><span class=\"ds-frame-val\">\"shikun\"</span></div></div>",
+      "css": ".ds-frame { position: relative; border: 1px solid var(--color-rule-hi, #2a3230); background: var(--color-pane, #0f1413); padding: 1.5rem; } .ds-frame::before { content: '\\250C\\2500 ' attr(data-label) ' \\2500'; position: absolute; top: -0.55em; left: 0.75rem; background: var(--color-shell, #0a0e0d); padding: 0 0.35rem; color: var(--color-phosphor, #7ee787); font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 0.75rem; line-height: 1; } .ds-frame-row { display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.75rem; padding: 0.4rem 0; align-items: baseline; } .ds-frame-key { color: var(--color-amber, #f4c171); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; } .ds-frame-val { color: var(--color-bone, #e6e1cf); font-family: var(--font-mono, 'JetBrains Mono', monospace); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The 3AM Terminal",
+    "overview": "The screen you'd find a frontend engineer in front of at 3am: a dark room lit only by the soft green glow of a phosphor display, a clock still ticking, a cursor still blinking. The whole interface is one long, focused terminal session — calm, precise, at home in the command line. Depth comes from three near-black tones layered like the inside of a CRT (void > shell > pane), a faint scanline haze, a vignette, and the occasional phosphor bloom — never drop-shadows. Command-line metaphors are the real grammar of the IA, not decoration: the hero boots like a shell, recent posts are a git log, the skill stack is ls ./tools, an article is a less reader. Monospace almost everywhere, with one italic serif (Fraunces) as the single warm human voice cutting through the grid.",
+    "keyCharacteristics": [
+      "Dark phosphor-CRT surface; depth via tonal layering, not shadows.",
+      "Monospace-first type with one italic-serif accent voice.",
+      "Sharp, zero-radius geometry — drawn with rules and box characters, not rounded cards.",
+      "One green accent used sparingly; amber and rose are rare, role-specific signals.",
+      "Command-line metaphors as real IA, plus subtle living detail (blinking cursor, pulsing dot, live clock, read-progress)."
+    ],
+    "rules": [
+      { "name": "The One Green Rule", "body": "Phosphor green is the system's only interactive color and stays under ~10% of any screen — links, prompts, active/hover/focus only. Rarity is the signal.", "section": "colors" },
+      { "name": "The Dim Floor Rule", "body": "dim (#6b6e66) is ~3.75:1 on shell — below AA 4.5:1. Permitted only for large text and non-essential decoration; reading-size body and essential labels must be ash or bone.", "section": "colors" },
+      { "name": "The Monospace-Default Rule", "body": "Mono is the page's native tongue; everything is mono unless it's a deliberate Fraunces accent. Never add a third family.", "section": "typography" },
+      { "name": "The Serif-as-Spice Rule", "body": "Fraunces appears italic, small, and rare — a lede, a quote, a motto. More than a sentence or two per view turns it into noise.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "Surfaces never cast shadows. To raise something, step up a tone (shell to pane) or add a rule-hi border. The only legal glow is phosphor light on a living element.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep phosphor green (#7ee787) as the single interactive accent, under ~10% of any screen.",
+      "Do convey depth with tonal layering (void/shell/pane) and 1px rule hairlines; the only legal lift is phosphor glow on a living element.",
+      "Do keep every corner sharp (radius 0); the 999px pill is reserved for status dots only.",
+      "Do keep body and essential labels at ash (#a6a195) or bone; treat WCAG AA as the floor.",
+      "Do make the command-line metaphor load-bearing — real IA, not a decorative skin.",
+      "Do use mono everywhere by default, with italic Fraunces as a rare warm accent voice.",
+      "Do give every entrance/blink/pulse a prefers-reduced-motion fallback, with content visible without the animation."
+    ],
+    "donts": [
+      "Don't ship the template portfolio: gradient hero + equal-sized card grid + big avatar + 'Hi, I'm…'.",
+      "Don't fall back to corporate-blue / minimal-SaaS — no safe blue, no personality-less rounded cards.",
+      "Don't add showy parallax/bounce/neon/full-screen motion that fights readability, or wear the terminal look as a costume over a generic layout.",
+      "Don't drop reading-size body text to dim (#6b6e66, ~3.75:1) for elegance.",
+      "Don't use border-left/border-right > 1px as a colored accent stripe.",
+      "Don't use gradient text (background-clip: text), decorative glassmorphism beyond the one nav blur, or grey drop-shadows.",
+      "Don't introduce a third type family or let Fraunces serif spread past a sentence or two per view."
+    ]
+  }
+}

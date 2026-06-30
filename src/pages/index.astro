@@ -17,14 +17,8 @@ const posts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 5);
 
-const totalPosts = allPosts.filter((p) => (p.data.lang || 'zh') === lang).length;
-
-const stats = [
-  { value: '5+', label: lang === 'zh' ? '年 / years' : 'years' },
-  { value: '50+', label: lang === 'zh' ? '项目 / projects' : 'projects' },
-  { value: String(totalPosts), label: lang === 'zh' ? '日志 / logs' : 'logs' },
-  { value: '∞', label: lang === 'zh' ? '好奇心' : 'curiosity' },
-];
+const totalEntries = allPosts.length;
+const firstYear = Math.min(...allPosts.map((p) => p.data.pubDate.getFullYear()));
 ---
 
 <!doctype html>
@@ -62,18 +56,9 @@ const stats = [
               </div>
 
               <h1 class="hero__title type-line stagger" style="animation-delay: 700ms;">
-                <span class="hero__line">
-                  <span class="hero__num">01</span>
-                  {t('hero.title.line1')}
-                </span>
-                <span class="hero__line hero__line--accent">
-                  <span class="hero__num">02</span>
-                  {t('hero.title.line2')}
-                </span>
-                <span class="hero__line">
-                  <span class="hero__num">03</span>
-                  {t('hero.title.line3')}<span class="cursor-thin"></span>
-                </span>
+                <span class="hero__line">{t('hero.title.line1')}</span>
+                <span class="hero__line hero__line--accent">{t('hero.title.line2')}</span>
+                <span class="hero__line">{t('hero.title.line3')}<span class="cursor-thin"></span></span>
               </h1>
 
               <p class="hero__lede type-line" style="animation-delay: 920ms;">
@@ -105,6 +90,10 @@ const stats = [
                 <span class="panel-key">focus</span>
                 <span class="panel-val">"{t('hero.focusValue')}"</span>
               </div>
+              <div class="panel-row">
+                <span class="panel-key">posts</span>
+                <span class="panel-val">"{totalEntries} entries · since {firstYear}"</span>
+              </div>
               <div class="panel-row panel-row--status">
                 <span class="panel-key">status</span>
                 <span class="panel-status">
@@ -126,27 +115,10 @@ const stats = [
 
               <div class="panel-meta">
                 <span class="prompt-arrow"></span>
-                <span class="dim">last_seen:</span>
-                <span class="amber">just now</span>
+                <span class="dim">last post:</span>
+                <span class="amber">{posts.length ? <FormattedDate date={posts[0].data.pubDate} lang={lang} /> : '—'}</span>
               </div>
             </aside>
-          </div>
-        </div>
-      </section>
-
-      <!-- ═════════════════ Stats / uname -a ═════════════════ -->
-      <section class="stats-block">
-        <div class="term-shell">
-          <div class="rule-label" style="margin-bottom: 2rem;">
-            <span>uname -a</span>
-          </div>
-          <div class="stats-grid">
-            {stats.map((s) => (
-              <div class="stat">
-                <div class="stat__value">{s.value}</div>
-                <div class="stat__label">{s.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -156,7 +128,7 @@ const stats = [
         <div class="term-shell">
           <div class="section-title">
             <span class="section-title__hash">##</span>
-            <span class="section-title__text">{t('term.stack')}</span>
+            <h2 class="section-title__text">{t('term.stack')}</h2>
             <span class="section-title__meta">$ ls ./tools</span>
           </div>
 
@@ -192,7 +164,7 @@ const stats = [
         <div class="term-shell">
           <div class="section-title">
             <span class="section-title__hash">##</span>
-            <span class="section-title__text">{t('term.recent')}</span>
+            <h2 class="section-title__text">{t('term.recent')}</h2>
             <span class="section-title__meta">$ git log --oneline | head -5</span>
           </div>
 
@@ -239,7 +211,7 @@ const stats = [
             <p class="cta__desc serif">{t('cta.description')}</p>
             <div class="cta__actions">
               <a href={`mailto:${PERSONAL_INFO.email}`} class="term-cmd term-cmd--rose">{t('cta.button')}</a>
-              <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="term-cmd term-cmd--ghost">github →</a>
+              <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="term-cmd term-cmd--ghost">open github</a>
             </div>
           </div>
         </div>
@@ -292,22 +264,10 @@ const stats = [
       }
       .hero__line {
         display: block;
-        position: relative;
-        padding-left: 3.5rem;
-      }
-      @media (max-width: 640px) {
-        .hero__line { padding-left: 2.5rem; }
+        text-wrap: balance;
+        overflow-wrap: break-word;
       }
       .hero__line--accent { color: var(--color-phosphor); }
-      .hero__num {
-        position: absolute;
-        left: 0;
-        top: 0.3em;
-        font-size: 0.85rem;
-        color: var(--color-faint);
-        font-weight: 400;
-        letter-spacing: 0;
-      }
 
       .hero__lede {
         margin: 1.75rem 0 2rem;
@@ -378,29 +338,10 @@ const stats = [
         margin-top: 0.5rem;
         font-size: 0.72rem;
       }
-      .panel-meta .dim { color: var(--color-dim); }
+      .panel-meta .dim { color: var(--color-ash); }
       .panel-meta .amber { color: var(--color-amber); }
       .panel-meta .prompt-arrow::before { color: var(--color-phosphor); }
 
-      /* ─── Stats ────────────────────────────────────────────────── */
-      .stats-block {
-        padding: 3rem 0;
-        border-top: 1px solid var(--color-rule);
-        border-bottom: 1px solid var(--color-rule);
-        background: linear-gradient(
-          to bottom,
-          rgba(126, 231, 135, 0.015) 0%,
-          transparent 100%
-        );
-      }
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
-      @media (min-width: 768px) {
-        .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-      }
 
       /* ─── Stack ────────────────────────────────────────────────── */
       .stack-block { padding: 5rem 0; }
@@ -486,7 +427,7 @@ const stats = [
         max-width: 40%;
       }
       .log-row__desc {
-        color: var(--color-dim);
+        color: var(--color-ash);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -496,17 +437,19 @@ const stats = [
       @media (max-width: 640px) {
         .log-row {
           grid-template-columns: auto 1fr;
+          align-items: start;
         }
-        .log-row__meta { display: none; }
+        .log-row__index { grid-row: 1 / span 2; }
         .log-line { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
         .leader { display: none; }
         .log-row__title, .log-row__desc { max-width: 100%; white-space: normal; }
+        .log-row__meta { text-align: left; font-size: 0.7rem; }
       }
 
       .posts-empty {
         text-align: center;
         padding: 3rem 0;
-        color: var(--color-dim);
+        color: var(--color-ash);
       }
       .posts-footer {
         margin-top: 2rem;
@@ -522,8 +465,8 @@ const stats = [
         border: 1px solid var(--color-phosphor);
         background: linear-gradient(
           135deg,
-          rgba(126, 231, 135, 0.04) 0%,
-          rgba(255, 92, 124, 0.04) 100%
+          color-mix(in srgb, var(--color-phosphor) 4%, transparent) 0%,
+          color-mix(in srgb, var(--color-rose) 4%, transparent) 100%
         );
       }
       @media (min-width: 768px) {

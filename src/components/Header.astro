@@ -9,9 +9,9 @@ const translatePath = useTranslatedPath(lang);
 const pathname = new URL(Astro.request.url).pathname;
 
 const navItems = [
-  { key: '~',     label: t('nav.home'),  href: translatePath('/') },
-  { key: 'posts', label: t('nav.blog'),  href: translatePath('/blog') },
-  { key: 'about', label: t('nav.about'), href: translatePath('/about') },
+  { key: '~',     label: t('nav.home'),  href: translatePath('/'),      hotkey: 'h' },
+  { key: 'posts', label: t('nav.blog'),  href: translatePath('/blog'),  hotkey: 'p' },
+  { key: 'about', label: t('nav.about'), href: translatePath('/about'), hotkey: 'a' },
 ];
 
 const isActive = (href: string) => {
@@ -37,6 +37,7 @@ const isActive = (href: string) => {
           {navItems.map((item) => (
             <a
               href={item.href}
+              data-hotkey={item.hotkey}
               class:list={['nav-cmd', { 'is-active': isActive(item.href) }]}
             >
               <span class="bracket">[</span><span class="key">{item.key}</span><span class="bracket">]</span>
@@ -46,6 +47,7 @@ const isActive = (href: string) => {
         </nav>
 
         <div class="status-bar__right">
+          <button id="kbd-help-btn" class="help-btn" type="button" aria-label="keyboard shortcuts" aria-haspopup="dialog">[?]</button>
           <span class="clock" id="term-clock" aria-label="time">--:--</span>
           <LanguageSwitcher />
           <button
@@ -83,6 +85,21 @@ const isActive = (href: string) => {
       </ul>
     </div>
   </div>
+
+  <!-- keyboard shortcuts help -->
+  <dialog id="kbd-help" class="kbd-help" aria-label="keyboard shortcuts">
+    <div class="kbd-help__head">
+      <span class="prompt">man shortcuts</span>
+      <button id="kbd-help-close" class="kbd-help__close" type="button" aria-label="close">[esc]</button>
+    </div>
+    <dl class="kbd-help__list">
+      <div><dt><kbd class="kbd">h</kbd></dt><dd>home</dd></div>
+      <div><dt><kbd class="kbd">p</kbd></dt><dd>posts</dd></div>
+      <div><dt><kbd class="kbd">a</kbd></dt><dd>about</dd></div>
+      <div><dt><kbd class="kbd">?</kbd></dt><dd>toggle this help</dd></div>
+      <div><dt><kbd class="kbd">esc</kbd></dt><dd>close</dd></div>
+    </dl>
+  </dialog>
 </header>
 
 <style>
@@ -184,7 +201,7 @@ const isActive = (href: string) => {
 
   .clock {
     display: none;
-    color: var(--color-dim);
+    color: var(--color-ash);
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
     font-size: 0.72rem;
@@ -240,6 +257,75 @@ const isActive = (href: string) => {
   }
   .mobile-menu__link.is-active { color: var(--color-phosphor); }
   .mobile-menu__link.is-active .key { color: var(--color-phosphor); }
+
+  /* Touch: comfortable ≥44px hit areas on coarse pointers */
+  @media (pointer: coarse) {
+    .nav-cmd { min-height: 44px; }
+    .mobile-toggle { min-width: 44px; min-height: 44px; justify-content: center; padding: 0; }
+    .mobile-menu__link { min-height: 44px; align-items: center; }
+    .help-btn { min-height: 44px; min-width: 44px; }
+  }
+
+  /* keyboard-help trigger + overlay */
+  .help-btn {
+    display: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--color-ash);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    padding: 0;
+    transition: color var(--duration-fast) var(--ease-out-quart);
+  }
+  .help-btn:hover { color: var(--color-phosphor); }
+  @media (min-width: 768px) { .help-btn { display: inline; } }
+
+  .kbd-help {
+    margin: auto;
+    max-width: 22rem;
+    width: calc(100% - 2rem);
+    padding: 0;
+    background: var(--color-pane);
+    border: 1px solid var(--color-rule-hi);
+    color: var(--color-bone);
+    font-family: var(--font-mono);
+  }
+  .kbd-help::backdrop {
+    background: color-mix(in srgb, var(--color-void) 72%, transparent);
+    backdrop-filter: blur(2px);
+  }
+  .kbd-help__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .kbd-help__close {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--color-ash);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+  .kbd-help__close:hover { color: var(--color-phosphor); }
+  .kbd-help__list {
+    margin: 0;
+    padding: 0.85rem 1rem 1rem;
+    display: grid;
+    gap: 0.55rem;
+    font-size: 0.85rem;
+  }
+  .kbd-help__list > div {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .kbd-help__list dt { margin: 0; }
+  .kbd-help__list dd { margin: 0; color: var(--color-ash); }
 </style>
 
 <script>
@@ -266,4 +352,24 @@ const isActive = (href: string) => {
   }
   tick();
   setInterval(tick, 1000);
+
+  // Keyboard shortcuts + help overlay (terminal-native nav)
+  const help = document.getElementById('kbd-help') as HTMLDialogElement | null;
+  const helpBtn = document.getElementById('kbd-help-btn');
+  const helpClose = document.getElementById('kbd-help-close');
+  const toggleHelp = () => { if (help) help.open ? help.close() : help.showModal(); };
+  helpBtn?.addEventListener('click', toggleHelp);
+  helpClose?.addEventListener('click', () => help?.close());
+
+  const isTyping = (el: EventTarget | null) => {
+    const n = el as HTMLElement | null;
+    return !!n && (n.tagName === 'INPUT' || n.tagName === 'TEXTAREA' || n.isContentEditable);
+  };
+  document.addEventListener('keydown', (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey || isTyping(e.target)) return;
+    if (e.key === '?') { e.preventDefault(); toggleHelp(); return; }
+    if (help?.open) return; // dialog handles its own keys (Esc closes)
+    const link = document.querySelector<HTMLAnchorElement>(`.nav-cmd[data-hotkey="${e.key}"]`);
+    if (link) { e.preventDefault(); window.location.href = link.href; }
+  });
 </script>

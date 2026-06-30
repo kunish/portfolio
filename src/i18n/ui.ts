@@ -19,11 +19,9 @@ export const ui = {
     'site.description': '前端工程师 - 专注于创建优雅、高效的用户界面体验',
 
     // Hero
-    'hero.greeting': '你好，我是',
-    'hero.role': '前端工程师',
-    'hero.title.line1': '构建',
-    'hero.title.line2': '卓越的',
-    'hero.title.line3': '数字体验',
+    'hero.title.line1': '界面',
+    'hero.title.line2': '是写给人读的',
+    'hero.title.line3': '代码',
     'hero.description': '热衷于用代码创造美好体验的前端开发者，专注于 React、Vue、TypeScript 和现代 Web 技术。',
     'hero.cta.work': '查看作品',
     'hero.cta.contact': '联系我',
@@ -32,11 +30,6 @@ export const ui = {
     'hero.location': '位置',
     'hero.focus': '专注领域',
     'hero.focusValue': 'Web 应用开发',
-
-    // Stats
-    'stats.experience': '年经验',
-    'stats.projects': '个项目',
-    'stats.clients': '位客户',
 
     // Sections
     'section.skills': '技能专长',
@@ -75,7 +68,7 @@ export const ui = {
     // CTA
     'cta.title': '让我们一起创造',
     'cta.description': '无论是新项目还是合作机会，我都很乐意听取您的想法',
-    'cta.button': '开始对话',
+    'cta.button': 'mail kunish',
 
     // Common
     'common.loading': '加载中...',
@@ -110,11 +103,9 @@ export const ui = {
     'site.description': 'Frontend Engineer - Focused on creating elegant and efficient user interface experiences',
 
     // Hero
-    'hero.greeting': "Hi, I'm",
-    'hero.role': 'Frontend Engineer',
-    'hero.title.line1': 'Crafting',
-    'hero.title.line2': 'Exceptional',
-    'hero.title.line3': 'Digital Experiences',
+    'hero.title.line1': 'interfaces are',
+    'hero.title.line2': 'code written',
+    'hero.title.line3': 'for people to read',
     'hero.description': 'A passionate frontend developer dedicated to creating beautiful experiences with code, focusing on React, Vue, TypeScript, and modern web technologies.',
     'hero.cta.work': 'View Work',
     'hero.cta.contact': 'Contact Me',
@@ -123,11 +114,6 @@ export const ui = {
     'hero.location': 'Location',
     'hero.focus': 'Focus',
     'hero.focusValue': 'Web App Development',
-
-    // Stats
-    'stats.experience': 'Years Exp.',
-    'stats.projects': 'Projects',
-    'stats.clients': 'Clients',
 
     // Sections
     'section.skills': 'Skills & Expertise',
@@ -166,7 +152,7 @@ export const ui = {
     // CTA
     'cta.title': "Let's Create Together",
     'cta.description': "Whether it's a new project or collaboration opportunity, I'd love to hear your ideas",
-    'cta.button': 'Start a Conversation',
+    'cta.button': 'mail kunish',
 
     // Common
     'common.loading': 'Loading...',

@@ -177,8 +177,10 @@ const ogImage = slug ? `/og/${slug}.png` : undefined;
       .reader-bar__progress {
         height: 1px;
         background: var(--color-phosphor);
-        width: 0%;
-        transition: width 100ms linear;
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 100ms linear;
       }
 
       /* ── crumbs / meta ───────────────────────────────── */
@@ -283,7 +285,7 @@ const ogImage = slug ? `/og/${slug}.png` : undefined;
         margin-top: 0.6rem;
         font-family: var(--font-mono);
         font-size: 0.7rem;
-        color: var(--color-dim);
+        color: var(--color-ash);
         text-align: center;
       }
 
@@ -323,14 +325,14 @@ const ogImage = slug ? `/og/${slug}.png` : undefined;
         align-items: center;
         font-size: 0.78rem;
       }
-      .post-footer__hint .dim { color: var(--color-dim); }
+      .post-footer__hint .dim { color: var(--color-ash); }
       .post-footer__sig {
         margin-top: 1.25rem;
         font-family: var(--font-mono);
         font-size: 0.7rem;
         text-align: center;
       }
-      .post-footer__sig .dim { color: var(--color-faint); }
+      .post-footer__sig .dim { color: var(--color-ash); }
     </style>
 
     <script>
@@ -347,7 +349,7 @@ const ogImage = slug ? `/og/${slug}.png` : undefined;
         const traveled = window.scrollY - start + 200;
         const pct = Math.max(0, Math.min(100, Math.round((traveled / total) * 100)));
         pctEl.textContent = `${pct}%`;
-        (progEl as HTMLElement).style.width = `${pct}%`;
+        (progEl as HTMLElement).style.transform = `scaleX(${pct / 100})`;
       }
 
       window.addEventListener('scroll', update, { passive: true });

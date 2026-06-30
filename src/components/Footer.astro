@@ -112,7 +112,7 @@ const buildId = currentYear.toString(36) + Math.random().toString(36).slice(2, 6
     line-height: 1.05;
     margin: 0;
     white-space: pre;
-    text-shadow: 0 0 12px rgba(126, 231, 135, 0.3);
+    text-shadow: 0 0 12px color-mix(in srgb, var(--color-phosphor) 30%, transparent);
   }
 
   .motto {
@@ -143,6 +143,11 @@ const buildId = currentYear.toString(36) + Math.random().toString(36).slice(2, 6
   .footer-link:hover { color: var(--color-phosphor); }
   .footer-link .bullet { color: var(--color-faint); }
   .footer-link:hover .bullet { color: var(--color-phosphor); }
+
+  /* Touch: comfortable ≥44px hit areas on coarse pointers */
+  @media (pointer: coarse) {
+    .footer-link { min-height: 44px; align-items: center; }
+  }
 
   .sys-list {
     margin: 0;
@@ -190,7 +195,7 @@ const buildId = currentYear.toString(36) + Math.random().toString(36).slice(2, 6
     align-items: center;
     gap: 0.55rem;
   }
-  .dim { color: var(--color-dim); }
+  .dim { color: var(--color-ash); }
 </style>
 
 <script>
